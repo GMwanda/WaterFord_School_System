@@ -23,10 +23,10 @@
         <div class="container nav_container">
             <a href=""><img src="" alt="LOGO"></a>
             <ul class="nav_menu">
-                <li><a href="/myHtml/index.html">Home</a></li>
-                <li><a href="/myHtml/about.html">About</a></li>
-                <li><a href="/myHtml/courses.html">Courses</a></li>
-                <li><a href="/myHtml/contact.html">Contact</a></li>
+                <li><a href="">Home</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Courses</a></li>
+                <li><a href="">Contact</a></li>
             </ul>
             <button id="open_menu_btn" title="Open menu">
                 <i class='bx bx-menu'></i>
@@ -60,10 +60,10 @@
             <div class="footer2">
                 <h4>links</h4>
                 <ul class="plinks">
-                    <li><a href="/myHtml/index.html">Home</a></li>
-                    <li><a href="/myHtml/about.html">About</a></li>
-                    <li><a href="/myHtml/courses.html">Courses</a></li>
-                    <li><a href="/myHtml/contact.html">Contact</a></li>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Courses</a></li>
+                    <li><a href="">Contact</a></li>
                 </ul>
             </div>
             <!--FOOTER3-->
