@@ -24,7 +24,7 @@
         </div>
     </header>
 
-    <!--CATEGORIES-->
+    <!--ALL COURSES CATEGORIES-->
     <section class="categories">
         <div class="container categories_container">
             <!--CATEGORIES LEFT-->

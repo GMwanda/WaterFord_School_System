@@ -1,3 +1,4 @@
+/***        UNIVERSAL VARIABLES     ***/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
@@ -113,6 +114,9 @@ img {
     color: var(--color-white);
 }
 
+/***        END OF UNIVERSAL VARIABLES     ***/
+
+
 /*NAVBAR*/
 nav {
     background: transparent;
@@ -153,8 +157,10 @@ nav button {
 }
 
 .nav_menu a:hover {
-    color: var(--color-bg2);
-    border-bottom: 2.5px solid var(--color-bg2);
+    color: var(--color-danger);
+    border-bottom: 2.5px solid var(--color-danger);
+    padding: 8px;
+    font-size: 1.2rem;
 }
 
 /*MAIN CONTENT*/
@@ -190,6 +196,7 @@ footer ul li {
 
 footer ul li a:hover {
     text-decoration: underline;
+    
 }
 
 .social_links {

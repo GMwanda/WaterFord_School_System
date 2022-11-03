@@ -1,22 +1,8 @@
+///////     HEADER & FOOTER SECTION     ///////
+//NAVBAR SECTION
 //CHANGE NAVBAR STYLES ON SCROLL
 window.addEventListener('scroll', () => {
     document.querySelector('nav').classList.toggle('window_scroll', window.scrollY > 0)
-})
-
-//HIDE QN ANSWER
-const qns = document.querySelectorAll('.qn');
-qns.forEach(qn => {
-    qn.addEventListener('click', () => {
-        qn.classList.toggle('open');
-
-        //CHANGE ICON
-        const icon = qn.querySelector('.qn_icon i');
-        if (icon.className === 'bx bx-plus') {
-            icon.className = 'bx bx-minus'
-        } else {
-            icon.className = 'bx bx-plus'
-        }
-    })
 })
 
 //SHOW/HIDE NAVMENU(TABLET)
@@ -35,3 +21,21 @@ closeBtn.addEventListener('click', () => {
     closeBtn.style.display = "none";
     menuBtn.style.display = "inline-block";
 });
+
+///////     QUESTIONS SECTION     ///////
+//SHOW RESPONSE ON CLICK 
+const qns = document.querySelectorAll('.qn');
+qns.forEach(qn => {
+    qn.addEventListener('click', () => {
+        qn.classList.toggle('open');
+
+        //CHANGE ICON
+        const icon = qn.querySelector('.qn_icon i');
+        if (icon.className === 'bx bx-plus') {
+            icon.className = 'bx bx-minus'
+        } else {
+            icon.className = 'bx bx-plus'
+        }
+    })
+})
+
