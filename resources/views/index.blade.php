@@ -11,7 +11,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Ex minus omnis explicabo, dolore numquam itaque
                     doloribus modi mollitia vel? Consequuntur!</p>
-                <a href="/myHtml/courses.html" class="btn btn_primary">Get
+                <a href="" class="btn btn_primary">Get
                     Started</a>
             </div>
 

@@ -14,3 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\parentController@index');
+
+Route::get('/contact', 'App\Http\Controllers\parentController@contact');
+
+Route::get('/courses', 'App\Http\Controllers\parentController@courses');
+
+Route::get('/Student_Portal', 'App\Http\Controllers\parentController@StudentPortal');

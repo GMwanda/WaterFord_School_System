@@ -23,10 +23,9 @@
         <div class="container nav_container">
             <a href=""><img src="" alt="LOGO"></a>
             <ul class="nav_menu">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Courses</a></li>
-                <li><a href="">Contact</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
             <button id="open_menu_btn" title="Open menu">
                 <i class='bx bx-menu'></i>
@@ -60,10 +59,10 @@
             <div class="footer2">
                 <h4>links</h4>
                 <ul class="plinks">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Courses</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/Student_Portal">Student Portal</a></li>
+                    <li><a href="/courses">Courses</a></li>
+                    <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
             <!--FOOTER3-->
@@ -105,6 +104,8 @@
 
     <!--NAVBAR JS-->
     <script src="ProgramStyling/headerfooter.js"></script>
+    <!--LINKING JS FILES-->
+    <script src="/myJs/main.js"></script>
 </body>
 
 </html>
