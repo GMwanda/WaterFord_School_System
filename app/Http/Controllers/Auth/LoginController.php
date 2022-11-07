@@ -39,23 +39,23 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // LOGIN CREDENTIALS CHECK
-    public function login(Request $request)
-    {
-        $input = $request->all();
-        // GETS THE 
-        $this->validate($request,[
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
-        if (auth()->attempt(array('email' => $input['email']), array('password' => $input['password']))) {
-            if (auth()->user()->is_admin == 1) {
-                return redirect()->route('adminHome');
-            } else {
-                return redirect()->route('stdhome');
-            }
-        } else {
-            return redirect()->route('LoginPortal')->with('error', 'Input is incorrect.');
-        }
-    }
+    // // LOGIN CREDENTIALS CHECK
+    // public function login(Request $request)
+    // {
+    //     $input = $request->all();
+    //     // GETS THE 
+    //     $this->validate($request,[
+    //         'email' => 'required|email',
+    //         'password' => 'required'
+    //     ]);
+    //     if (auth()->attempt(array('email' => $input['email']), array('password' => $input['password']))) {
+    //         if (auth()->user()->is_admin == 1) {
+    //             return redirect()->route('adminHome');
+    //         } else {
+    //             return redirect()->route('stdhome');
+    //         }
+    //     } else {
+    //         return redirect()->route('LoginPortal')->with('error', 'Input is incorrect.');
+    //     }
+    // }
 }

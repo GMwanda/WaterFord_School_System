@@ -22,5 +22,9 @@ class parentController extends Controller
         return view('LoginPortal');
     }
 
+    public function staffHome(){
+        return view('StaffPortal');
+    }
+
     
 }
