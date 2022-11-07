@@ -16,10 +16,11 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-
+        //ADMIN PORTAL
         if (auth()->user()->is_admin == 1) {
             return $next($request);
         }
-        return redirect('home')->with('error', 'You have no admin Access');
+        //USER PORTAL
+        return redirect('stdhome')->with('error', 'You have no Staff Access');
     }
 }

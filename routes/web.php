@@ -23,7 +23,7 @@ Route::get('/LoginPortal', [App\Http\Controllers\HomeController::class, 'index']
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/StdPortal', [App\Http\Controllers\HomeController::class, 'index'])->name('stdhome');
-Route::get('/StaffPortal', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('adminHome')->middleware('is_admin');
+Route::get('/StdPortal', [App\Http\Controllers\HomeController::class, 'index'])->name('stdHome');
+Route::get('/StaffPortal', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('staffHome');

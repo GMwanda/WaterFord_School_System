@@ -21,11 +21,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function stdHome()
     {
         return view('StdPortal');
     }
-    public function adminHome(){
+    public function staffHome(){
         return view('StaffPortal');
     }
 }
