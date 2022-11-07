@@ -20,7 +20,7 @@ class IsAdmin
 
         if (Auth::check()) {
 
-            if (Auth::user()->is_admin == '1') {
+            if (Auth::user()->is_admin == 1) {
                 return $next($request);
             } else {
                 return redirect('/home')->with('message', 'Access denied as you arent a Staff!!');

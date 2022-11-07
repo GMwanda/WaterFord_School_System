@@ -29,5 +29,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'stdHome'])->name('home');
 
-Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffHome');
+Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffHome')->middleware('auth');
 
