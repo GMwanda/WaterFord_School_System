@@ -19,4 +19,11 @@ Route::get('/contact', 'App\Http\Controllers\parentController@contact');
 
 Route::get('/courses', 'App\Http\Controllers\parentController@courses');
 
-Route::get('/Student_Portal', 'App\Http\Controllers\parentController@StudentPortal');
+Route::get('/LoginPortal', [App\Http\Controllers\HomeController::class, 'index'])->name('LoginPortal');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/StdPortal', [App\Http\Controllers\HomeController::class, 'index'])->name('stdhome');
+Route::get('/StaffPortal', [App\Http\Controllers\HomeController::class, 'adminHome'])->name('adminHome')->middleware('is_admin');

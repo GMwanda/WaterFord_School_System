@@ -12,6 +12,9 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="ProgramStyling/headerfooter.css">
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link rel="stylesheet" href="ProgramStyling/headerfooter.css">
     <title>SCHOOL MANAGEMENT SYSTEM</title>
 </head>
 
@@ -25,7 +28,42 @@
             <ul class="nav_menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/courses">Courses</a></li>
-                <li><a href="/contact">Contact</a></li>
+                
+                <!--START-->
+
+                <!-- Right Side Of Navbar -->
+                <li class="navbar-nav ms-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        @if (Route::has('login'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+             
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+                </li>
+
+                <!--END-->
+
             </ul>
             <button id="open_menu_btn" title="Open menu">
                 <i class='bx bx-menu'></i>
@@ -60,7 +98,7 @@
                 <h4>links</h4>
                 <ul class="plinks">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/Student_Portal">Student Portal</a></li>
+                    <li><a href="/LoginPortal">Login</a></li>
                     <li><a href="/courses">Courses</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>

@@ -18,8 +18,8 @@ class parentController extends Controller
         return view('contact');
     }
 
-    public function StudentPortal(){
-        return view('stdPortal');
+    public function LoginPortal(){
+        return view('LoginPortal');
     }
 
     
