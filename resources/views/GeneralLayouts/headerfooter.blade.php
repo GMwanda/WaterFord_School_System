@@ -28,9 +28,7 @@
             <ul class="nav_menu">
                 <li><a href="/">Home</a></li>
                 <li><a href="/courses">Courses</a></li>
-                
                 <!--START-->
-
                 <!-- Right Side Of Navbar -->
                 <li class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
