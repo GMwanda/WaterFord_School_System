@@ -24,42 +24,40 @@
     <!--NAVIGATION-->
     <nav>
         <div class="container nav_container">
-            <a href=""><img src="" alt="LOGO"></a>
+            <a href="" class="text-decoration-none"><img src="" alt="LOGO"></a>
             <ul class="nav_menu">
-                <li><a href="/">Home</a></li>
-                <li><a href="/courses">Courses</a></li>
-                
+                <li><a href="/" class="text-decoration-none">Home</a></li>
+                <li><a href="/courses" class="text-decoration-none">Courses</a></li>
                 <!--START-->
-
                 <!-- Right Side Of Navbar -->
                 <li class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-             
-                        @endif
-                    @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                    </li>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
-                        </li>
-                    @endguest
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
                 </li>
 
                 <!--END-->
@@ -76,69 +74,117 @@
 
     <!--MAIN CONTENT-->
     <main>
-        {{$slot}}
+        {{ $slot }}
     </main>
 
     <!--FOOTER-->
-    <footer>
-        <div class="container footer_container">
-            <!--FOOTER1-->
-            <div class="footer1">
-                <a href="/myHtml/index.html" class="footer_logo">
-                    <h4>NAME</h4>
-                </a>
-                <P>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing
-                    elit. Enim porro rerum earum deleniti iste dolor
-                    voluptas provident fuga doloribus. Explicabo?
-                </P>
-            </div>
-            <!--FOOTER2-->
-            <div class="footer2">
-                <h4>links</h4>
-                <ul class="plinks">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/LoginPortal">Login</a></li>
-                    <li><a href="/courses">Courses</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </div>
-            <!--FOOTER3-->
-            <div class="footer3">
-                <h4>privacy</h4>
-                <ul class="privacy">
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Terms and Conditions</a></li>
-                    <li><a href="">Refund Policy</a></li>
-                </ul>
-            </div>
-            <!--FOOTER4-->
-            <div class="footer4">
-                <h4>contact us</h4>
-                <div>
-                    <p>+254 256-5896-85</p>
-                    <p>school@gmail.com</p>
+    <!-- FOOTER -->
+    <div class="">
+        <footer class="text-center text-lg-start bg-purple-500">
+            <!-- Grid container -->
+            <div class="container p-4">
+                <!--Grid row-->
+                <div class="row my-4">
+                    <!--Grid column 1-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+
+                        <a class="navbar-brand fs-3 fw-bolder text-uppercase" href="{{ url('/') }}">
+                            {{ config('School', 'School') }}
+                        </a>
+
+                        <P class="text-lg">
+                            Lorem ipsum dolor sit amet consectetur, adipisicing
+                            elit. Enim porro rerum earum deleniti iste dolor
+                            voluptas provident fuga doloribus. Explicabo?
+                        </P>
+
+                        <ul class="list-unstyled d-flex flex-row justify-content-center fs-5">
+                            <li>
+                                <a class="text-black  px-2" href="#!">
+                                    <i class="fab fa-facebook-square"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-black  px-2" href="#!">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-black  ps-2" href="#!">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column 2-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h4 class="fs-3 fw-bolder text-uppercase">links</h4>
+                        <ul class="fs-5">
+                            <li><a href="/" class="text-white text-decoration-none fas fa-paw pe-3">Home</a>
+                            </li>
+                            <li><a href="/LoginPortal"
+                                    class="text-white  text-decoration-none fas fa-paw pe-3">Login</a></li>
+                            <li><a href="/courses" class="text-white  text-decoration-none fas fa-paw pe-3">Courses</a>
+                            </li>
+                            <li><a href="/contact" class="text-white  text-decoration-none fas fa-paw pe-3">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column 3-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h4 class="fs-3 fw-bolder text-uppercase">privacy</h4>
+                        <ul class="privacy fs-5">
+                            <li><a href="" class="text-white  text-decoration-none fas fa-paw pe-3">Privacy
+                                    Policy</a></li>
+                            <li><a href="" class="text-white text-decoration-none fas fa-paw pe-3">Terms and
+                                    Conditions</a>
+                            </li>
+                            <li><a href="" class="text-white  text-decoration-none fas fa-paw pe-3">Refund
+                                    Policy</a></li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column 4-->
+                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                        <h4 class="fs-3 fw-bolder text-uppercase">contact us</h4>
+                        <div class="fs-5">
+                            <p>+254 256-5896-85</p>
+                            <p>school@gmail.com</p>
+                        </div>
+
+
+                        <a href="" class="p-2 fs-5"><i class='bx bxl-instagram-alt'></i></a>
+
+                        <a href="" class="p-2 fs-5"><i class='bx bxl-twitter'></i></a>
+
+                        <a href="" class="p-2 fs-5"><i class='bx bxl-facebook'></i></a>
+
+                        <a href="" class="p-2 fs-5"><i class='bx bxl-linkedin-square'></i></a>
+
+
+                    </div>
+                    <!--Grid column-->
                 </div>
-                <ul class="social_links">
-                    <li>
-                        <a href=""><i class='bx bxl-instagram-alt'></i></a>
-                    </li>
-                    <li>
-                        <a href=""><i class='bx bxl-twitter'></i></a>
-                    </li>
-                    <li>
-                        <a href=""><i class='bx bxl-facebook'></i></a>
-                    </li>
-                    <li>
-                        <a href=""><i class='bx bxl-linkedin-square'></i></a>
-                    </li>
-                </ul>
+                <!--Grid row-->
             </div>
-        </div>
-        <div class="footer_copyright">
-            <small>Copyright &copy; Josiah Development</small>
-        </div>
-    </footer>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                © 2020 Copyright:
+                <a class="text-black text-decoration-none" href="">Josiah</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+
+    </div>
+    <!-- End of .container -->
 
     <!--NAVBAR JS-->
     <script src="ProgramStyling/headerfooter.js"></script>
