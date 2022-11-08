@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IsAdmin
 {
@@ -17,9 +18,15 @@ class IsAdmin
     public function handle(Request $request, Closure $next)
     {
 
-        if (auth()->user()->is_admin == 1) {
-            return $next($request);
+        if (Auth::check()) {
+
+            if (Auth::user()->is_admin == 1) {
+                return $next($request);
+            } else {
+                return redirect('/home')->with('message', 'Access denied as you arent a Staff!!');
+            }
+        } else {
+            return redirect('/LoginPortal')->with('message', 'YOU ARENT LOGGED IN!!');
         }
-        return redirect('home')->with('error', 'You have no admin Access');
     }
 }
