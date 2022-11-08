@@ -23,7 +23,7 @@ class parentController extends Controller
     }
 
     public function staffHome(){
-        return view('StaffPortal');
+        return view('StaffViews.StaffPortal');
     }
 
     
