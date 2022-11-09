@@ -18,11 +18,11 @@ use Illuminate\Support\Facades\Route;
 // Route::prefix('admin')->middleware('auth')->group(function () {
 // });
 
-Route::get('/', 'App\Http\Controllers\parentController@index');
+Route::get('/', 'App\Http\Controllers\parentController@index')->name('index');
 
-Route::get('/contact', 'App\Http\Controllers\parentController@contact');
+Route::get('/contact', 'App\Http\Controllers\parentController@contact')->name('contact');
 
-Route::get('/courses', 'App\Http\Controllers\parentController@courses');
+Route::get('/courses', 'App\Http\Controllers\parentController@courses')->name('courses');
 
 Route::get('/LoginPortal', [App\Http\Controllers\parentController::class, 'LoginPortal'])->name('LoginPortal');
 
@@ -30,12 +30,18 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'stdHome'])->name('home');
 
+Route::get('/admini', [App\Http\Controllers\HomeController::class, 'admini'])->name('admini');
+
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffHome')->middleware('auth', 'is_admin');
 Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffDashboard');
-Route::get('/attendance', function(){
+
+Route::get('/attendance', function () {
     return view('StaffViews.Attendance');
+
 })->name('attendance');
-Route::get('/markAttendance', function(){
+
+Route::get('/markAttendance', function () {
     return view('StaffViews.updateAttendance');
 })->name('updateAttendance');
+
 Route::get('/blah', [StaffController::class, 'defaultView']);

@@ -42,14 +42,15 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <!--
-                                                                    <li class="nav-item">
-                                                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                                                    </li>
-                                                                -->
+                                                                                        <li class="nav-item">
+                                                                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                                                        </li>
+                                                                                    -->
                             @endif
 
                             @if (Route::has('register'))
@@ -65,11 +66,16 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a href="{{ route('index') }}" class="dropdown-item text-decoration-none ">Home</a>
+                                    <a href="{{ route('courses') }}"
+                                        class="dropdown-item text-decoration-none ">Courses</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+
+
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -82,6 +88,7 @@
             </div>
         </nav>
 
+        {{-- MAIN CONTENT --}}
         <main class="py-4 min-vh-100 bg-purple-400">
             @yield('content')
         </main>
@@ -137,9 +144,11 @@
                                 <li><a href="/LoginPortal"
                                         class="text-black  text-decoration-none fas fa-paw pe-3">Login</a></li>
                                 <li><a href="/courses"
-                                        class="text-black  text-decoration-none fas fa-paw pe-3">Courses</a></li>
+                                        class="text-black  text-decoration-none fas fa-paw pe-3">Courses</a>
+                                </li>
                                 <li><a href="/contact"
-                                        class="text-black  text-decoration-none fas fa-paw pe-3">Contact</a></li>
+                                        class="text-black  text-decoration-none fas fa-paw pe-3">Contact</a>
+                                </li>
                             </ul>
                         </div>
                         <!--Grid column-->
