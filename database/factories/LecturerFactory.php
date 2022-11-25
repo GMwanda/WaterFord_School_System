@@ -18,7 +18,7 @@ class LecturerFactory extends Factory
     {
         return [
             //
-            'user_id'=>fake()->numberBetween(1, 10),
+            'user_id'=>fake()->numberBetween(1, 25),
             'faculty_id' => fake()->numberBetween(1, 6),
             'course_teaching' => fake()->numberBetween(1, 9)
         ];
