@@ -23,7 +23,8 @@
 <body>
     <div id="app">
         {{-- NAVBAR --}}
-        <nav class="navbar navbar-expand-md navbar-light bg-purple-500 shadow-sm text-uppercase fs-4">
+        {{--  --}}
+        <nav class="navbar navbar-expand-md navbar-light bg-pallete3 shadow-sm text-uppercase fs-4">
             <div class="container">
                 <a class="navbar-brand fs-3 fw-bolder " href="{{ url('/') }}">
                     {{ config('School', 'School') }}

@@ -31,11 +31,20 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'stdHome'])->name('home');
 
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffHome')->middleware('auth', 'is_admin');
-Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffDashboard');
+//Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffDashboard');
 Route::get('/attendance', function(){
     return view('StaffViews.Attendance');
 })->name('attendance');
 Route::get('/markAttendance', function(){
     return view('StaffViews.updateAttendance');
 })->name('updateAttendance');
-Route::get('/blah', [StaffController::class, 'defaultView']);
+Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashboard');
+Route::get('/coursework', function(){
+    return view('StaffViews.Coursework');
+})->name('coursework');
+Route::get('coursework/addNotes', function(){
+    return view('StaffViews.addNotes');
+})->name('addNotes');
+Route::get('coursework/announcement', function(){
+    return view('StaffViews.announcements');
+})->name('announcements');
