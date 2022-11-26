@@ -7,7 +7,7 @@
     #container{
         display: grid;
         column-gap: 22px;
-        grid-column: 25fr 75fr;
+        grid-template-columns: 25fr 175fr;
     }
 </style>
 @section('content')
@@ -15,7 +15,7 @@
     
 <div id="container"  class=" container grid w-screen">
     {{-- DASHBOARD --}}
-    <div class=" col-start-1 col-end-2 flex flex-col w-64 h-screen py-8 bg-white border-r ">
+    <div class=" col-start-1 col-end-2 flex flex-col w-72 h-screen py-8 bg-white border-r ">
         <h2 class="text-3xl font-semibold text-center text-gray-800 ">STAFF PORTAL</h2>
     
         <div class="flex flex-col items-center mt-6 -mx-2">
@@ -32,16 +32,16 @@
                     <span onClick="document.location.href='{{route('staffDashboard')}}';" class="mx-4 font-medium">Dashboard</span>
                 </a>
     
-                <a id="student_mgt" class="grid no-underline hover:underline col-auto items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform hover:bg-gray-200 hover:text-gray-700" href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" fill="currentColor" class=" my-1 inline bi bi-mortarboard-fill" viewBox="0 0 16 16">
+                <a id="student_mgt" class="grid no-underline col-auto items-center px-4 py-2 mt-5 text-gray-600 duration-300 transform" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" fill="currentColor" class=" bi bi-mortarboard-fill" viewBox="0 0 16 16">
                         <path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5Z"/>
                         <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032Z"/>
                     </svg>
-                    <span class=" row-start-2 row-end-3 col-start-1 col-end-2 mx-4 my-0 font-medium ">Student Management</span>
-                    <div class=" left-0">
-                        <ul id="std-mgt-submenu" class="rounded px-0 w-62 relative text-center text-gray-700 no-underline ">
-                            <li onClick="document.location.href='{{route('attendance')}}';" class=" my-3 border-b border-b-slate-900 py-1 w-full ">Attendance</li>
-                            <li class="border-b py-1 w-full">Update Coursework Marks</li>
+                    <span class=" row-start-2 row-end-3 col-start-1 col-end-2 mx-4 my-0 h-9 font-medium">Student Management</span>
+                    <div class=" left-0 w-full">
+                        <ul id="std-mgt-submenu" class="rounded px-0 w-full relative text-center text-gray-700 no-underline ">
+                            <li onClick="document.location.href='{{route('attendance')}}';" class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Attendance</li>
+                            <li onclick="document.location.href='{{route('coursework')}}';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Coursework</li>
                         </ul>
                     </div>
                 </a>
@@ -82,7 +82,7 @@
     {{-- END OF DASHBOARD --}}
 
     {{-- ABOUT/ RIGHT SIDE --}}
-    <div class=" col-start-2 col-end-3 bg-white p-3 shadow-sm rounded-sm">
+    <div class=" col-start-2 col-end-3 w-[20px] bg-white p-3 shadow-sm rounded-sm">
         @yield('staff-content')
     </div>
     {{-- END OF ABOUT --}}

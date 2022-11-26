@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('image')->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->boolean('is_admin')->default(0);
+            $table->boolean('is_admin');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
