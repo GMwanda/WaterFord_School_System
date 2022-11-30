@@ -9,7 +9,11 @@ class Faculty extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name'
+        'faculty_name'
     ];
+    //Relationship between Faculty and Courses
+    public function course(){
+        return $this->hasMany(Course::class);
+    }
     
 }

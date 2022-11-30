@@ -13,4 +13,6 @@ class Lecturer extends Model
         'faculty_id',
         'course_teaching'
     ];
+
+    
 }

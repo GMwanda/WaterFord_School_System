@@ -48,14 +48,14 @@ src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixid=MXwxMjA3f
             </div>
         </div>
         <br> <br> <br>
-        <span class="tracking-wide font-bold">Your Lectures</span>
+        <span id="lecturers" class="tracking-wide font-bold">Your Lectures</span>
         {{-- <button
             class="block w-full text-blue-800 text-sm font-semibold rounded-lg hover:bg-gray-100 focus:outline-none focus:shadow-outline focus:bg-gray-100 hover:shadow-xs p-3 my-4">Show
             Full Information</button> --}}
             <div class=" flex flex-row flex-wrap">
-                <x-class-card></x-class-card>
-                <x-class-card></x-class-card>
-                <x-class-card></x-class-card>
+                @foreach ($lecturers as $lecture)
+                <x-class-card :lecture="$lecture" /> 
+                @endforeach
             </div>
             
 @endsection

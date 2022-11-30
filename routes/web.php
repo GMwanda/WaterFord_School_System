@@ -42,6 +42,7 @@ Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashbo
 Route::get('/coursework', function(){
     return view('StaffViews.Coursework');
 })->name('coursework');
+Route::get('/coursework/{courseName}', [StaffController::class, 'showCoursework'])->name('coursework.show');
 Route::get('coursework/addNotes', function(){
     return view('StaffViews.addNotes');
 })->name('addNotes');
