@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\StaffController;
+use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,20 +33,24 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'stdHome'])->na
 
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffHome')->middleware('auth', 'is_admin');
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffDashboard');
-Route::get('/attendance', function(){
-    return view('StaffViews.Attendance');
-})->name('attendance');
-Route::get('/markAttendance', function(){
-    return view('StaffViews.updateAttendance');
-})->name('updateAttendance');
+//Show attendance view
+Route::get('/attendance', [StaffController::class, 'attendance'])->name('Attendance');
+//Update attendance view
+Route::get('/attendance/{courseName}/update-attendance', [StaffController::class, 'markAttendanceView'])->name('Attendance.markAttenanceView');
+//Update attendance route
+Route::post('/attendance/update-attendance', [StaffController::class, 'updateAttendance'])->name('Attendance.updateAttendance');
+//Staff dashboard view
 Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashboard');
+//Staff coursework view
 Route::get('/coursework', function(){
     return view('StaffViews.Coursework');
 })->name('coursework');
+
 Route::get('/coursework/{courseName}', [StaffController::class, 'showCoursework'])->name('coursework.show');
-Route::get('coursework/addNotes', function(){
+Route::get('coursework/{courseName}/addNotes', function(){
     return view('StaffViews.addNotes');
 })->name('addNotes');
-Route::get('coursework/announcement', function(){
+Route::get('coursework/{courseName}/announcement', function(){
     return view('StaffViews.announcements');
 })->name('announcements');
+
