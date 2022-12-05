@@ -45,4 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //Relationship between Users i.e lecturers/students and Courses
+    public function course(){
+        return $this->hasMany(Course::class);
+    }
 }

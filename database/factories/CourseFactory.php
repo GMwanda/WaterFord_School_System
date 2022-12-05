@@ -18,8 +18,9 @@ class CourseFactory extends Factory
     {
         return [
             //
-            'name' => fake()->word(),
-            'faculty_id' => fake()->numberBetween(2, 5)
+            'course_name' => fake()->word(),
+            'faculty_id' => fake()->numberBetween(2, 5),
+            'lecturer_id' => fake()->numberBetween(1, 12)
         ];
     }
 }

@@ -18,7 +18,7 @@ class FacultyFactory extends Factory
     {
         return [
             //
-            'name' => fake()->word(),
+            'faculty_name' => fake()->word(),
         ];
     }
 }
