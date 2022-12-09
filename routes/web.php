@@ -19,18 +19,18 @@ use Illuminate\Support\Facades\Route;
 // Route::prefix('admin')->middleware('auth')->group(function () {
 // });
 
+// {SCREENS AVAILABLE WITHOUR LOGIN}
 Route::get('/', 'App\Http\Controllers\parentController@index');
-
 Route::get('/contact', 'App\Http\Controllers\parentController@contact');
-
 Route::get('/courses', 'App\Http\Controllers\parentController@courses');
 
 Route::get('/LoginPortal', [App\Http\Controllers\parentController::class, 'LoginPortal'])->name('LoginPortal');
-
 Auth::routes();
 
+// {STUDENT HOME SCREEN}
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'stdHome'])->name('home');
 
+//                                  {LOGGED IN STAFF SCREENS @NYAMO}
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffHome')->middleware('auth', 'is_admin');
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffDashboard');
 //Show attendance view
@@ -45,7 +45,6 @@ Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashbo
 Route::get('/coursework', function(){
     return view('StaffViews.Coursework');
 })->name('coursework');
-
 Route::get('/coursework/{courseName}', [StaffController::class, 'showCoursework'])->name('coursework.show');
 Route::get('coursework/{courseName}/addNotes', function(){
     return view('StaffViews.addNotes');
