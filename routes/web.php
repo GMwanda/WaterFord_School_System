@@ -41,7 +41,8 @@ Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashbo
 // Route::get('/coursework', function(){
 //     return view('StaffViews.Coursework');
 // })->name('coursework');
-// Show courses teachingRoute::get('/coursework', [StaffController::class, 'showtempcourseWorkMarks'])->name('tempcourseworkMarks.show');
+// Show courses teaching
+Route::get('/coursework', [StaffController::class, 'showtempcourseWorkMarks'])->name('tempcourseworkMarks.show');
 //Show functions in a particular course
 Route::get('/coursework/{courseName}', [StaffController::class, 'showCourseworkFunctions'])->name('courseworkFunctions.show');
 //Add courswork content/notes to a particular course
