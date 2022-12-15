@@ -1,13 +1,6 @@
 @extends('layouts.stafflayout')
 @section('staff-content')
     <h1>Attendance</h1>
-    {{--
-        TODO:
-            1. Display all the lecture cards
-            2. Show all students enrolled in that particular course with that lecturer
-            3. The displayed info shoul have a radio button to mark people absent
-            4. Button to "Update" 
-         --}}
         <div class=" flex flex-row flex-wrap">
           @foreach ($lecturers as $lecturer)
             <div id="card" class=" w-60 mx-7 my-4 overflow-hidden rounded-xl cursor-pointer bg-white shadow-md duration-200 hover:scale-105 hover:shadow-xl">

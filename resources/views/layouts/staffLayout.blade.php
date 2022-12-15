@@ -41,7 +41,7 @@
                     <div class=" left-0 w-full">
                         <ul id="std-mgt-submenu" class="rounded px-0 w-full relative text-center text-gray-700 no-underline ">
                             <li onClick="document.location.href='{{route('Attendance')}}';" class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Attendance</li>
-                            <li onclick="document.location.href='#lecturers';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Coursework</li>
+                            <li onclick="document.location.href='{{route('tempcourseworkMarks.show')}}';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Coursework</li>
                         </ul>
                     </div>
                 </a>
