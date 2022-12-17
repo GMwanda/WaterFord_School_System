@@ -96,6 +96,25 @@ class StaffController extends Controller
         return response('Success', 200);
     }
 
+    // Function to handle changing student coursework marks
+    public function changeMarks(Request $request){
+        $assessment = $request->t_assessment;
+        $stdId = $request->t_stdId2;
+        $marks = $request->t_marks."/".$request->t_total;
+        $courseId = $request->t_courseId;
+        $courseName = $request->t_courseName;
+        $t = CourseworkMarks::where('stdId', '=', $stdId)->where('courseId', $courseId)->where('Assessment', $assessment)->first();
+        $t->stdId = $stdId;
+        $t->Marks = $marks;
+        $t->Assessment = $assessment;
+        $t->courseId = $courseId;
+        $time = time();
+        $t->updated_at = date('D-m-y', $time);
+        $t->save();
+        return redirect()->route('courseMarks.upload', $courseName);
+    }
+    
+
 
 
 }
