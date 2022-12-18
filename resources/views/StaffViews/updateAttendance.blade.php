@@ -16,12 +16,11 @@
         @csrf
         <div class="my-4">
             <label class="font-bold mx-2" for="date">Date</label>
-            <input id="t_date" class="form-group border border-solid rounded-md h-10 border-slate-600 focus:bg-blue-200" type="date" name="t_date" required>
+            <input id="t_date" class="form-group border border-solid rounded-md h-10 border-slate-600 focus:bg-blue-200" type="date" name="t_date">
             <input type="text" class="form-group" hidden value="{{$courseId->id}}" name="t_courseId" id="t_courseId">
             <span class="alert alert-success mb-3" role="alert" id="successMsg" style="display: none">Updated</span>
             <span class="alert alert-danger mb-3" role="alert" id="errorMsg" style="display: none"></span>  
         </div>
-     
                 @foreach ($Students as $student)
                 <tr>
                     <td>{{$student->UserId}}</td>
@@ -33,11 +32,10 @@
                     </tr>
                 @endforeach
             </tbody>
+            <button id="btn_finish" class="btn btn-secondary" type="submit">Finish</button>
             </form>
-            
         </table>
         
-    {{-- COURSE ID NULL ERROR!!! FIX IT!!! --}}
     <meta name="csrf_token" content="{{ csrf_token() }}">
     <script type="text/javascript">
         $(document).ready(function () {
@@ -49,40 +47,34 @@
                     'X-CSRF-TOKEN':$('meta[name="csrf_token"]').attr('content')
                 }
             });
-            // Attach a change event handler to the checkboxes.
-            checkboxes.change(function() {
-                enabledStatus = checkboxes
-                .filter(":checked") // Filter out unchecked boxes.
-                .map(function() { // Extract values using jQuery map.
-                  stdId = this.value; return stdId;
-                }) 
-                .get() // Get array.
-
-              for (let i = 0; i < enabledStatus.length; i++) {
-                let stdId = enabledStatus[i];
-                $.ajax({
-                    type: "post",
-                    url: "{{ url('/attendance/update-attendance') }}",
-                    data: {
-                        Date:$("#t_date").val(),
-                        CourseId:$("#t_courseId").val(),
-                        StudentId:stdId
-                    },
-                    success: function (response) {
-                        $("#successMsg").fadeIn();
-                        $("#successMsg").fadeOut();
-                    },
-                    error: function(xhr, status, error) {
-                      var err = JSON.parse(xhr.responseText);
-                      err.message = "Date is missing";
-                      console.log(err.message);
-                      let msg = err.message
-                      $("#errorMsg").html(err.message);
-                      $("#errorMsg").fadeIn("slow");
-                      $("#errorMsg").fadeOut("slow");
-                    }
+            $("#btn_finish").click(function (e) { 
+                e.preventDefault();
+                enabledStatus = checkboxes.filter(":checked").map(function (){
+                    stdId = this.value;
+                    console.log(stdId);
+                    $.ajax({
+                        type: "post",
+                        url: "{{ url('/attendance/update-attendance') }}",
+                        data: {
+                            Date:$("#t_date").val(),
+                            CourseId:$("#t_courseId").val(),
+                            StudentId:stdId
+                        },
+                        success: function (response) {
+                            $("#successMsg").fadeIn();
+                            $("#successMsg").fadeOut();
+                        },
+                        error: function(xhr, status, error) {
+                          var err = JSON.parse(xhr.responseText);
+                          err.message = "Date is missing";
+                          console.log(err.message);
+                          let msg = err.message
+                          $("#errorMsg").html(err.message);
+                          $("#errorMsg").fadeIn("slow");
+                          $("#errorMsg").fadeOut("slow");
+                        }
+                    });
                 });
-              }
             });
         });
     </script>

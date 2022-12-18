@@ -56,10 +56,15 @@ Route::get('coursework/{courseName}/addNotes', function () {
 Route::get('coursework/{courseName}/announcement', function () {
     return view('StaffViews.announcements');
 })->name('announcements');
+Route::get('coursework/{courseName}/assignment', function () {
+    return view('StaffViews.assignment');
+})->name('assignments');
 // Show form to update marks
-Route::get('/coursework/{courseName}/update-marks', [StaffController::class, 'showCourseWorkMarks'])->name('courseMarks.update');
+Route::get('/coursework/{courseName}/update-marks', [StaffController::class, 'showCourseWorkMarks'])->name('courseMarks.upload');
 // Route to handle student marks form post method
 Route::post('/coursework/update-marks', [StaffController::class, 'updateMarks']);
+// Change/correct coursework marks
+Route::post('/coursework/change-marks', [StaffController::class, 'changeMarks'])->name('courseMarks.change');
 // Show attendance view
 Route::get('/attendance', [StaffController::class, 'attendance'])->name('Attendance');
 // Update attendance view
