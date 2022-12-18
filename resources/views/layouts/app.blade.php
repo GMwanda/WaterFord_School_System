@@ -24,7 +24,7 @@
     <div id="app">
         {{-- NAVBAR --}}
         {{--  --}}
-        <nav class="navbar navbar-expand-md navbar-light bg-pallete3 shadow-sm text-uppercase fs-4">
+        <nav class="navbar navbar-expand-md navbar-light bg-purple-400 shadow-sm text-uppercase fs-4">
             <div class="container">
                 <a class="navbar-brand fs-3 fw-bolder " href="{{ url('/') }}">
                     {{ config('School', 'School') }}
@@ -47,10 +47,10 @@
                         @guest
                             @if (Route::has('login'))
                                 <!--
-                                                                    <li class="nav-item">
-                                                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                                                    </li>
-                                                                -->
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                                        </li>
+                                                                    -->
                             @endif
 
                             @if (Route::has('register'))
@@ -83,7 +83,7 @@
             </div>
         </nav>
 
-        <main class="py-4 min-vh-100 bg-purple-400">
+        <main class="py-4 min-vh-100 bg-purple-300">
             @yield('content')
         </main>
 
