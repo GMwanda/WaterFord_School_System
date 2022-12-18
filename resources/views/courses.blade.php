@@ -9,7 +9,7 @@
             <!--COMPUTER SCIENCE-->
             <article class="course">
                 <div class="course_img">
-                    <img src="/images/computersciencepic.jpg"
+                    <img src="/home_images/computersciencepic.jpg"
                         alt="computerscience">
                 </div>
                 <div class="course_info">
@@ -25,7 +25,7 @@
             <!--ENGINEERING-->
             <article class="course">
                 <div class="course_img">
-                    <img src="/images/engineeringpic.jpg"
+                    <img src="/home_images/engineeringpic.jpg"
                         alt="engineering">
                 </div>
                 <div class="course_info">
@@ -41,7 +41,7 @@
             <!--COMPUTER SCIENCE-->
             <article class="course">
                 <div class="course_img">
-                    <img src="/images/computersciencepic.jpg"
+                    <img src="/home_images/computersciencepic.jpg"
                         alt="computerscience">
                 </div>
                 <div class="course_info">
@@ -57,7 +57,7 @@
             <!--MEDICINE-->
             <article class="course">
                 <div class="course_img">
-                    <img src="/images/medicinepic.jpg"
+                    <img src="/home_images/medicinepic.jpg"
                         alt="medicine">
                 </div>
                 <div class="course_info">
@@ -73,7 +73,7 @@
             <!--COMPUTER SCIENCE-->
             <article class="course">
                 <div class="course_img">
-                    <img src="/images/computersciencepic.jpg"
+                    <img src="/home_images/computersciencepic.jpg"
                         alt="computerscience">
                 </div>
                 <div class="course_info">
@@ -89,7 +89,7 @@
             <!--MEDICINE-->
             <article class="course">
                 <div class="course_img">
-                    <img src="/images/medicinepic.jpg"
+                    <img src="/home_images/medicinepic.jpg"
                         alt="medicine">
                 </div>
                 <div class="course_info">

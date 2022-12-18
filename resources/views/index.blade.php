@@ -18,7 +18,7 @@
             <!--RIGHT SIDE-->
             <div class="header_right">
                 <div class="header_right_image">
-                    <img src="/images/students.svg" alt="students">
+                    <img src="/home_images/students.svg" alt="student">
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
             <!--COMPUTER SCIENCE-->
             <article class="course">
                 <div class="course_img">
-                    <img src="/images/computersciencepic.jpg" alt="computerscience">
+                    <img src="/home_images/computersciencepic.jpg" alt="computerscience">
                 </div>
                 <div class="course_info">
                     <h4>computer science</h4>
@@ -140,7 +140,7 @@
             <!--ENGINEERING-->
             <article class="course">
                 <div class="course_img">
-                    <img src="/images/engineeringpic.jpg" alt="engineering">
+                    <img src="/home_images/engineeringpic.jpg" alt="engineering">
                 </div>
                 <div class="course_info">
                     <h4>engineering</h4>
@@ -155,7 +155,7 @@
             <!--MEDICINE-->
             <article class="course">
                 <div class="course_img">
-                    <img src="/images/medicinepic.jpg" alt="medicine">
+                    <img src="/home_images/medicinepic.jpg" alt="medicine">
                 </div>
                 <div class="course_info">
                     <h4>medicine</h4>
@@ -262,7 +262,7 @@
             <!--PERSON -->
             <article class="testimonial swiper-slide">
                 <div class="avatar">
-                    <img src="/images/person1.jpg" alt="person 1">
+                    <img src="/Images/avatar-kimberly-smith.webp" alt="person 1">
                 </div>
                 <div class="testimonal_info">
                     <h4>person 1</h4>
@@ -281,7 +281,7 @@
             <!--PERSON -->
             <article class="testimonial swiper-slide">
                 <div class="avatar">
-                    <img src="/images/person2.jpg" alt="person 1">
+                    <img src="/Images/avatar-nathan-peterson.webp" alt="person 2">
                 </div>
                 <div class="testimonal_info">
                     <h4>person 1</h4>
@@ -299,7 +299,7 @@
             <!--PERSON -->
             <article class="testimonial swiper-slide">
                 <div class="avatar">
-                    <img src="/images/person3.jpg" alt="person 1">
+                    <img src="/Images/avatar-kimberly-smith.webp" alt="person 3">
                 </div>
                 <div class="testimonal_info">
                     <h4>person 1</h4>
@@ -317,7 +317,7 @@
             <!--PERSON -->
             <article class="testimonial swiper-slide">
                 <div class="avatar">
-                    <img src="/images/person4.jpg" alt="person 1">
+                    <img src="/Images/avatar-anna-kim.webp" alt="person 4">
                 </div>
                 <div class="testimonal_info">
                     <h4>person 1</h4>
@@ -337,7 +337,7 @@
             <!--PERSON -->
             <article class="testimonial swiper-slide">
                 <div class="avatar">
-                    <img src="/images/person5.jpg" alt="person 1">
+                    <img src="/Images/avatar-angela-gray.webp" alt="person 5">
                 </div>
                 <div class="testimonal_info">
                     <h4>person 1</h4>
@@ -355,7 +355,7 @@
             <!--PERSON -->
             <article class="testimonial swiper-slide">
                 <div class="avatar">
-                    <img src="/images/person6.jpg" alt="person 1">
+                    <img src="/Images/avatar-rizky-hasanuddin.webp" alt="person 6">
                 </div>
                 <div class="testimonal_info">
                     <h4>person 1</h4>
