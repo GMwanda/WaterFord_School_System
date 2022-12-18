@@ -1,9 +1,13 @@
 <?php
 
-use App\Http\Controllers\StaffController;
 use App\Models\Student;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    parentController,
+    HomeController,
+    StaffController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -18,25 +22,24 @@ use Illuminate\Support\Facades\Route;
 
 // Route::prefix('admin')->middleware('auth')->group(function () {
 // });
-
-// {SCREENS AVAILABLE WITHOUR LOGIN}
-Route::get('/', 'App\Http\Controllers\parentController@index');
-Route::get('/contact', 'App\Http\Controllers\parentController@contact');
-Route::get('/courses', 'App\Http\Controllers\parentController@courses');
-
-Route::get('/LoginPortal', [App\Http\Controllers\parentController::class, 'LoginPortal'])->name('LoginPortal');
 Auth::routes();
+// {SCREENS AVAILABLE WITHOUR LOGIN}
+Route::get('/', parentController::class)->name(name: 'index');
+Route::get('/contact', parentController::class)->name(name: 'contact');
+Route::get('/courses', parentController::class)->name(name: 'courses');
+Route::get('/LoginPortal', parentController::class)->name(name: 'LoginPortal');
 
 // {STUDENT HOME SCREEN}
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'stdHome'])->name('home');
+Route::get('/home', [HomeController::class, 'stdHome'])->name('home')->middleware('auth', 'is_admin');
+
+
+
 
 //                                  {LOGGED IN STAFF SCREENS @NYAMO}
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffHome')->middleware('auth', 'is_admin');
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffDashboard');
-
-
 //Staff dashboard view
-Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashboard');
+Route::get('/Staff', [StaffController::class, 'defaultView'])->name(name: 'staffDashboard');
 //Staff coursework view
 // Route::get('/coursework', function(){
 //     return view('StaffViews.Coursework');
@@ -46,11 +49,11 @@ Route::get('/coursework', [StaffController::class, 'showtempcourseWorkMarks'])->
 //Show functions in a particular course
 Route::get('/coursework/{courseName}', [StaffController::class, 'showCourseworkFunctions'])->name('courseworkFunctions.show');
 //Add courswork content/notes to a particular course
-Route::get('coursework/{courseName}/addNotes', function(){
+Route::get('coursework/{courseName}/addNotes', function () {
     return view('StaffViews.addNotes');
 })->name('addNotes');
 //Make an announcement for a particular group of students
-Route::get('coursework/{courseName}/announcement', function(){
+Route::get('coursework/{courseName}/announcement', function () {
     return view('StaffViews.announcements');
 })->name('announcements');
 // Show form to update marks
@@ -63,4 +66,3 @@ Route::get('/attendance', [StaffController::class, 'attendance'])->name('Attenda
 Route::get('/attendance/{courseName}/update-attendance', [StaffController::class, 'markAttendanceView'])->name('Attendance.markAttenanceView');
 // Update attendance route
 Route::post('/attendance/update-attendance', [StaffController::class, 'updateAttendance'])->name('Attendance.updateAttendance');
-

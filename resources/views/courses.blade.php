@@ -1,4 +1,4 @@
-<x-headerfooter-layout>
+<x-altheaderfooter-layout>
 
     <link rel="stylesheet" href="ProgramStyling/index.css">
     
@@ -106,4 +106,4 @@
     </section>
 
 
-</x-headerfooter-layout>
+</x-altheaderfooter-layout>
