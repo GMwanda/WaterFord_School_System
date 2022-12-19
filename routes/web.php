@@ -71,3 +71,10 @@ Route::get('/attendance', [StaffController::class, 'attendance'])->name('Attenda
 Route::get('/attendance/{courseName}/update-attendance', [StaffController::class, 'markAttendanceView'])->name('Attendance.markAttenanceView');
 // Update attendance route
 Route::post('/attendance/update-attendance', [StaffController::class, 'updateAttendance'])->name('Attendance.updateAttendance');
+//students
+Route::get('/st', 'App\Http\Controllers\student_profile@st_profile');
+Route::post('/st_add', 'App\Http\Controllers\student_profile@st_Added');
+Route::get('/show', 'App\Http\Controllers\student_profile@getstudents_profile');
+Route::get('delete/{id}','App\Http\Controllers\student_profile@studentDelete');
+Route::get('update/{id}','App\Http\Controllers\student_profile@student_update'); 
+Route::post('/updated/{id}', 'App\Http\Controllers\student_profile@updated'); 
