@@ -16,9 +16,9 @@ class StudentFactory extends Factory
      */
     public function definition()
     {
-        $course = fake()->randomElement(['1', '2', '5', '28']);
+        $course = fake()->randomElement(['1', '2', '5', '8']);
         return [
-            'UserId' => fake()->numberBetween(1, 25),
+            'UserId' => fake()->numberBetween(1, 20),
             'CourseEnrolled' => $course,
         ];
     }
