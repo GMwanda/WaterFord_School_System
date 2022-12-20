@@ -27,7 +27,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-purple-400 shadow-sm text-uppercase fs-4">
             <div class="container">
                 <a class="navbar-brand fs-3 fw-bolder " href="{{ url('/') }}">
-                    {{ config('School', 'School') }}
+                    {{ config('School', 'WATERFORD') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -99,7 +99,7 @@
                         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 
                             <a class="navbar-brand fs-3 fw-bolder text-uppercase" href="{{ url('/') }}">
-                                {{ config('School', 'School') }}
+                                {{ config('School', 'WATERFORD') }}
                             </a>
 
                             <P class="text-lg">
@@ -165,7 +165,7 @@
                             <h4 class="fs-3 fw-bolder text-uppercase">contact us</h4>
                             <div class="fs-5">
                                 <p>+254 256-5896-85</p>
-                                <p>school@gmail.com</p>
+                                <p>waterford@gmail.com</p>
                             </div>
                             <ul class="fs-5">
                                 <li>
@@ -191,7 +191,7 @@
                 <!-- Copyright -->
                 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
                     © 2020 Copyright:
-                    <a class="text-black text-decoration-none" href="">Josiah</a>
+                    <a class="text-black text-decoration-none" href="">Waterford</a>
                 </div>
                 <!-- Copyright -->
             </footer>

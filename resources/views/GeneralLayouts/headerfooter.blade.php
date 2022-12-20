@@ -15,7 +15,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <link rel="stylesheet" href="ProgramStyling/headerfooter.css">
-    <title>SCHOOL MANAGEMENT SYSTEM</title>
+    <title>WATERFORD</title>
 </head>
 
 <!--BODY-->
@@ -24,9 +24,11 @@
     <!--NAVIGATION-->
     <nav>
         <div class="container nav_container">
-            <a href="" class="text-decoration-none"><img src="" alt="LOGO"></a>
+            <a class="navbar-brand fs-3 fw-bolder " href="{{ url('/') }}">
+                {{ config('School', 'Waterford') }}
+            </a>
             <ul class="nav_menu">
-                <li><a href="/" class="text-decoration-none">Home</a></li>
+                {{-- <li><a href="/" class="text-decoration-none">Home</a></li> --}}
                 <li><a href="/courses" class="text-decoration-none">Courses</a></li>
                 <!--START-->
                 <!-- Right Side Of Navbar -->
@@ -89,7 +91,7 @@
                     <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 
                         <a class="navbar-brand fs-3 fw-bolder text-uppercase" href="{{ url('/') }}">
-                            {{ config('School', 'School') }}
+                            {{ config('School', 'WATERFORD') }}
                         </a>
 
                         <P class="text-lg">
@@ -155,7 +157,7 @@
                         <h4 class="fs-3 fw-bolder text-uppercase">contact us</h4>
                         <div class="fs-5">
                             <p>+254 256-5896-85</p>
-                            <p>school@gmail.com</p>
+                            <p>waterford@gmail.com</p>
                         </div>
 
 
@@ -178,7 +180,7 @@
             <!-- Copyright -->
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
                 © 2020 Copyright:
-                <a class="text-black text-decoration-none" href="">Josiah</a>
+                <a class="text-black text-decoration-none" href="">Waterford</a>
             </div>
             <!-- Copyright -->
         </footer>
