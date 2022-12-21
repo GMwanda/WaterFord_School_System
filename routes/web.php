@@ -24,10 +24,10 @@ use App\Http\Controllers\{
 // });
 Auth::routes();
 // {SCREENS AVAILABLE WITHOUR LOGIN}
-Route::get('/', parentController::class)->name(name: 'index');
-Route::get('/contact', parentController::class)->name(name: 'contact');
-Route::get('/courses', parentController::class)->name(name: 'courses');
-Route::get('/LoginPortal', parentController::class)->name(name: 'LoginPortal');
+Route::get('/', [parentController::class, 'index'])->name(name: 'index');
+Route::get('/contact', [parentController::class, 'contact'])->name(name: 'contact');
+Route::get('/courses', [parentController::class, 'courses'])->name(name: 'courses');
+Route::get('/LoginPortal', [parentController::class, 'LoginPortal'])->name(name: 'LoginPortal');
 
 // {STUDENT HOME SCREEN}
 Route::get('/home', [HomeController::class, 'stdHome'])->name('home')->middleware('auth', 'is_admin');
@@ -38,39 +38,47 @@ Route::get('/home', [HomeController::class, 'stdHome'])->name('home')->middlewar
 //                                  {LOGGED IN STAFF SCREENS @NYAMO}
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffHome')->middleware('auth', 'is_admin');
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffDashboard');
-//Staff dashboard view
-Route::get('/Staff', [StaffController::class, 'defaultView'])->name(name: 'staffDashboard');
-//Staff coursework view
-// Route::get('/coursework', function(){
-//     return view('StaffViews.Coursework');
-// })->name('coursework');
-// Show courses teaching
-Route::get('/coursework', [StaffController::class, 'showtempcourseWorkMarks'])->name('tempcourseworkMarks.show');
-//Show functions in a particular course
-Route::get('/coursework/{courseName}', [StaffController::class, 'showCourseworkFunctions'])->name('courseworkFunctions.show');
-//Add courswork content/notes to a particular course
-Route::get('coursework/{courseName}/addNotes', function () {
-    return view('StaffViews.addNotes');
-})->name('addNotes');
-//Make an announcement for a particular group of students
-Route::get('coursework/{courseName}/announcement', function () {
-    return view('StaffViews.announcements');
-})->name('announcements');
-Route::get('coursework/{courseName}/assignment', function () {
-    return view('StaffViews.assignment');
-})->name('assignments');
-// Show form to update marks
-Route::get('/coursework/{courseName}/update-marks', [StaffController::class, 'showCourseWorkMarks'])->name('courseMarks.upload');
-// Route to handle student marks form post method
-Route::post('/coursework/update-marks', [StaffController::class, 'updateMarks']);
-// Change/correct coursework marks
-Route::post('/coursework/change-marks', [StaffController::class, 'changeMarks'])->name('courseMarks.change');
-// Show attendance view
-Route::get('/attendance', [StaffController::class, 'attendance'])->name('Attendance');
-// Update attendance view
-Route::get('/attendance/{courseName}/update-attendance', [StaffController::class, 'markAttendanceView'])->name('Attendance.markAttenanceView');
-// Update attendance route
-Route::post('/attendance/update-attendance', [StaffController::class, 'updateAttendance'])->name('Attendance.updateAttendance');
+
+
+Route::group(['middleware'=>['auth', 'is_admin']],function () {
+    //Staff dashboard view
+    Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashboard');
+    //Staff coursework view
+    // Route::get('/coursework', function(){
+    //     return view('StaffViews.Coursework');
+    // })->name('coursework');
+    // Show courses teaching
+    Route::get('/coursework', [StaffController::class, 'showtempcourseWorkMarks'])->name('tempcourseworkMarks.show');
+    //Show functions in a particular course
+    Route::get('/coursework/{courseName}', [StaffController::class, 'showCourseworkFunctions'])->name('courseworkFunctions.show');
+    //Add courswork content/notes to a particular course
+    Route::get('coursework/{courseName}/addNotes', function () {
+        return view('StaffViews.addNotes');
+    })->name('addNotes');
+    //Make an announcement for a particular group of students
+    Route::get('coursework/{courseName}/announcement', function () {
+        return view('StaffViews.announcements');
+    })->name('announcements');
+    Route::get('coursework/{courseName}/assignment', function () {
+        return view('StaffViews.assignment');
+    })->name('assignments');
+    // Show form to update marks
+    Route::get('/coursework/{courseName}/update-marks', [StaffController::class, 'showCourseWorkMarks'])->name('courseMarks.upload');
+    // Route to handle student marks form post method
+    Route::post('/coursework/update-marks', [StaffController::class, 'updateMarks']);
+    // Change/correct coursework marks
+    Route::post('/coursework/change-marks', [StaffController::class, 'changeMarks'])->name('courseMarks.change');
+    // Show attendance view
+    Route::get('/attendance', [StaffController::class, 'attendance'])->name('Attendance');
+    // Update attendance view
+    Route::get('/attendance/{courseName}/update-attendance', [StaffController::class, 'markAttendanceView'])->name('Attendance.markAttenanceView');
+    // Update attendance route
+    Route::post('/attendance/update-attendance', [StaffController::class, 'updateAttendance'])->name('Attendance.updateAttendance');
+});
+
+
+
+
 //students
 Route::get('/st', 'App\Http\Controllers\student_profile@st_profile');
 Route::post('/st_add', 'App\Http\Controllers\student_profile@st_Added');
