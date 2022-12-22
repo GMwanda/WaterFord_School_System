@@ -86,3 +86,7 @@ Route::get('/show', 'App\Http\Controllers\student_profile@getstudents_profile');
 Route::get('delete/{id}','App\Http\Controllers\student_profile@studentDelete');
 Route::get('update/{id}','App\Http\Controllers\student_profile@student_update'); 
 Route::post('/updated/{id}', 'App\Http\Controllers\student_profile@updated'); 
+Route::get('/stdashboard', 'App\Http\Controllers\student_profile@st_dashboard');
+Route::get('/units', 'App\Http\Controllers\student_profile@get_units');
+Route::post('/add_units', 'App\Http\Controllers\student_profile@add_units');
+Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
