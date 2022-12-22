@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\st_model;
+use App\Models\units_model;
+
 
 use Illuminate\Http\Request;
 
@@ -30,11 +32,11 @@ class student_profile extends Controller
         
     }
     public function getstudents_profile(){
-        $st=st_model::all();
+       $st=st_model::all();
         return view('/students/studentsdetails',["st"=>$st]);
      }
      public function studentDelete($id){
-        $studentObj = St_model::find($id);
+        $studentObj = St_model();
         $studentObj->delete();
 
         return redirect('/show');
@@ -43,7 +45,7 @@ class student_profile extends Controller
         $st_u=st_model::find($id);
         return view('/students/editstudents',["st"=>$st_u]);
      }
-     public function updated(Request $request,$id){
+     public function updated(Request $request){
         
         $studentObj = St_model::find($id);
 
@@ -66,4 +68,28 @@ class student_profile extends Controller
         $st=st_model::all();
         return view('/students/attendance',["st"=>$st]);
     }
-}
+    public function st_dashboard()
+    {
+        return view('/students/studentlayout');
+    }
+    public function get_units()
+    {
+        return view('/students/register_units');
+    }
+    public function add_units(Request $request){
+        
+    $unit = new units_model();
+    $unit->Name = $request->Name;
+    $unit->Class = $request->class;
+    $unit->units = $request->units;
+    $unit->save();
+    return redirect('/units');
+     
+ }
+ public function getsregistered_units(){
+    $r=units_model::all();
+     return view('/students/getregisteredunits',["r"=>$r]);
+  }
+        
+    }
+
