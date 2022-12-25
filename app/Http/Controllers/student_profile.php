@@ -1,14 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\st_model;
 use App\Models\units_model;
-
+use Auth;
 
 use Illuminate\Http\Request;
 
 class student_profile extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+   
     public function st_profile()
     {
         return view('/students/student');
@@ -32,11 +39,12 @@ class student_profile extends Controller
         
     }
     public function getstudents_profile(){
-       $st=st_model::all();
+        $name=Auth::user()->name; 
+       $st=st_model::where('name',$name)->get();
         return view('/students/studentsdetails',["st"=>$st]);
      }
      public function studentDelete($id){
-        $studentObj = St_model();
+        $studentObj = St_model::find($id);
         $studentObj->delete();
 
         return redirect('/show');
@@ -45,7 +53,7 @@ class student_profile extends Controller
         $st_u=st_model::find($id);
         return view('/students/editstudents',["st"=>$st_u]);
      }
-     public function updated(Request $request){
+     public function updated(Request $request,$id){
         
         $studentObj = St_model::find($id);
 
@@ -87,7 +95,8 @@ class student_profile extends Controller
      
  }
  public function getsregistered_units(){
-    $r=units_model::all();
+  $name=Auth::user()->name;
+    $r=units_model::where('Name',$name)->get();
      return view('/students/getregisteredunits',["r"=>$r]);
   }
         
