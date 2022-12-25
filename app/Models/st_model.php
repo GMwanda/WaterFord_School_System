@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class st_model extends Model
 {
     protected $table='students_profile';
-    use HasFactory;
+    public  $timestamps=false;
 }
