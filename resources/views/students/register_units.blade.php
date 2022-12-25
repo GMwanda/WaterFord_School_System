@@ -19,7 +19,7 @@ td{
             <table class="table table-borderless">
                 <tr>
                     <td>Student Name</td>
-                    <td><input type="text" name="Name" class="form-control" value=""></td>
+                    <td><input type="text" name="Name" class="form-control" value="{{ Auth::user()->name }}"></td>
                 </tr>
                
                 
