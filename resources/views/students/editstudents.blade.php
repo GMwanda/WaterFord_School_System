@@ -1,3 +1,5 @@
+@extends('students.studentlayout')
+@section('std_content')
 <head>
 
 
@@ -72,3 +74,4 @@
         </form>
         </div>
     </div>
+    @endsection
