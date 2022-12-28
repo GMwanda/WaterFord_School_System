@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\st_model;
 use App\Models\units_model;
+use App\Models\CourseworkMarks;
+
 use Auth;
 
 use Illuminate\Http\Request;
@@ -39,8 +41,9 @@ class student_profile extends Controller
         
     }
     public function getstudents_profile(){
+        
         $name=Auth::user()->name; 
-       $st=st_model::where('name',$name)->get();
+       $st['students']=st_model::where('name',$name)->first();
         return view('/students/studentsdetails',["st"=>$st]);
      }
      public function studentDelete($id){
@@ -71,10 +74,11 @@ class student_profile extends Controller
      return redirect('/show');
      
  }
- public function attend()
-    {
-        $st=st_model::all();
-        return view('/students/attendance',["st"=>$st]);
+ public function marks()
+    {   
+        $id=Auth::user()->id;
+        $users=CourseworkMarks::where('stdId',$id)->get();
+        return view('/students/marksview',["users"=>$users]);
     }
     public function st_dashboard()
     {
@@ -99,6 +103,7 @@ class student_profile extends Controller
     $r=units_model::where('Name',$name)->get();
      return view('/students/getregisteredunits',["r"=>$r]);
   }
+  
         
     }
 
