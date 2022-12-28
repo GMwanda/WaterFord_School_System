@@ -125,7 +125,7 @@
                             <label for="user-role" class="col-md-4 col-form-label text-md-end">{{ __('User Role') }}</label>
 
                             <div class="col-md-6">
-                                <input id="userrole" type="number" class="form-control" name="userrole" required autocomplete="user-role" placeholder="(0=Student) (1=lec) (2=Admin)">
+                                <input id="userrole" type="number" class="form-control" name="userrole" required autocomplete="userrole" placeholder="(0=Student) (2=lec) (1=Admin)">
                             </div>
                         </div>
 

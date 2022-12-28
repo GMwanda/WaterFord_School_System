@@ -95,4 +95,4 @@ Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
 
 
 //ADMIN
-Route::get('/Admin', [AdminController::class, 'adminHome'])->name('adminHome');
+Route::get('/admin', 'App\Http\Controllers\AdminController@adminHome');
