@@ -92,7 +92,7 @@ Route::get('/stdashboard', 'App\Http\Controllers\student_profile@st_dashboard');
 Route::get('/units', 'App\Http\Controllers\student_profile@get_units');
 Route::post('/add_units', 'App\Http\Controllers\student_profile@add_units');
 Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
-
+Route::get('/marks', 'App\Http\Controllers\student_profile@marks');
 
 //ADMIN
 Route::get('/admin', 'App\Http\Controllers\AdminController@adminHome');
