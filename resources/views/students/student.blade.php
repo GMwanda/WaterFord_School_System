@@ -1,3 +1,5 @@
+@extends('students.studentlayout')
+@section('std_content')
 <head>
 
 
@@ -11,13 +13,13 @@ td{
 
     <div class="row mt-5">
         <div class="col-md-5 offset-md-3">
-            <h3 class="text text-center text-primary">Admission New Student</h3>
+            <h3 class="text text-center text-primary">Add details</h3>
             <form action="/st_add" method="POST" class="form-group">
                 @csrf
             <table class="table table-borderless">
                 <tr>
                     <td>Student Name</td>
-                    <td><input type="text" name="Name" class="form-control" value=""></td>
+                    <td><input type="readonly" name="Name" class="form-control" value="{{ Auth::user()->name }}"></td>
                 </tr>
                 <tr>
                     <td>Phone</td>
@@ -73,3 +75,4 @@ td{
         </form>
         </div>
     </div>
+    @endsection

@@ -22,11 +22,17 @@ class IsAdmin
 
             if (Auth::user()->is_admin == 1) {
                 return $next($request);
+            }
+            else if (Auth::user()->is_admin == 2) {
+                return $next($request);
+            }
+            else if(Auth::user()->is_admin == 0){
+                return $next($request);
             } else {
-                return redirect('/home')->with('message', 'Access denied as you arent a Staff!!');
+                return abort(403, 'Unauthorized Access');
             }
         } else {
-            return redirect('/LoginPortal')->with('message', 'YOU ARENT LOGGED IN!!');
+            return redirect('/login')->with('message', 'YOU ARENT LOGGED IN!!');
         }
     }
 }
