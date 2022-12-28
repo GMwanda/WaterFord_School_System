@@ -17,12 +17,7 @@
     <div id="container"  class=" container grid w-screen">
         {{-- DASHBOARD --}}
         <div class=" col-start-1 col-end-2 flex flex-col w-72 h-screen py-8 bg-white border-r ">
-            <h2 class="text-3xl font-semibold text-center text-gray-800 ">STAFF PORTAL</h2>
-        
-            <div class="flex flex-col items-center mt-6 -mx-2">
-                @yield('staff-img')
-                
-            </div>
+            <h2 class="text-3xl font-semibold text-center text-gray-800 ">ADMINISTRATOR'S PORTAL</h2>
         
             <div class="flex flex-col justify-between flex-1 mt-6">
                 <nav>
@@ -30,7 +25,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
                         </svg>
-                        <span onClick="document.location.href='{{route('staffDashboard')}}';" class="mx-4 font-medium">Dashboard</span>
+                        <span onClick="document.location.href='{{route('adminDashboard')}}';" class="mx-4 font-medium">Dashboard</span>
                     </a>
         
                     <a id="student_mgt" class="grid no-underline col-auto items-center px-4 py-2 mt-5 text-gray-600 duration-300 transform" href="#">
@@ -41,8 +36,8 @@
                         <span class=" row-start-2 row-end-3 col-start-1 col-end-2 mx-4 my-0 h-9 font-medium">Student Management</span>
                         <div class=" left-0 w-full">
                             <ul id="std-mgt-submenu" class="rounded px-0 w-full relative text-center text-gray-700 no-underline ">
-                                <li onClick="document.location.href='{{route('Attendance')}}';" class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Attendance</li>
-                                <li onclick="document.location.href='{{route('tempcourseworkMarks.show')}}';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Coursework</li>
+                                <li onClick="document.location.href='{{route('register')}}';" class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Register</li>
+                                <li onclick="document.location.href='{{route('assigningunits')}}';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Assigning units</li>
                             </ul>
                         </div>
                     </a>

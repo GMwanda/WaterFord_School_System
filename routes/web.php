@@ -92,3 +92,7 @@ Route::get('/stdashboard', 'App\Http\Controllers\student_profile@st_dashboard');
 Route::get('/units', 'App\Http\Controllers\student_profile@get_units');
 Route::post('/add_units', 'App\Http\Controllers\student_profile@add_units');
 Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
+
+
+//ADMIN
+Route::get('/Admin', [AdminController::class, 'adminHome'])->name('adminHome');
