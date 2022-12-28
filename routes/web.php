@@ -6,7 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     parentController,
     HomeController,
-    StaffController
+    StaffController, 
+    student_profile,
+    AdminController
 };
 
 /*
