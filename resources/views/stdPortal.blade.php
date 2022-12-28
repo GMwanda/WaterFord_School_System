@@ -41,6 +41,7 @@
                             <li onclick="document.location.href='/st';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">student_profile</li>
                             <li onclick="document.location.href='/get';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">registerdunits</li>
                             <li onclick="document.location.href='/units';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">registerforunits</li>
+                            <li onclick="document.location.href='/marks';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">marks</li>
                         </ul>
                     </div>
                 </a>
@@ -87,4 +88,3 @@
     {{-- END OF ABOUT --}}
 </div>
 @endsection
-
