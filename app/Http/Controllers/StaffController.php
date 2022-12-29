@@ -2,13 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\announcementRequest;
+use App\Http\Requests\assignmentRequest;
+use App\Http\Requests\AttendanceRequest;
+use App\Http\Requests\notesRequest;
+use App\Models\Announcments;
+use App\Models\Assignments;
 use App\Models\Attendance;
 use App\Models\Course;
 use App\Models\CourseworkMarks;
+use App\Models\Notes;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Response;
 
 class StaffController extends Controller
 {
@@ -46,7 +55,7 @@ class StaffController extends Controller
         return view('StaffViews.updateAttendance')->with('Students', $studentsEnrolled)->with('courseName',$courseName)->with('courseId', $course_id);
     }
     // Function that adds students attendance records to the database
-    public function updateAttendance(Request $request){
+    public function updateAttendance(AttendanceRequest $request){
         $att = new Attendance;
         $att->Date = $request->Date;
         $att->StudentId = $request->StudentId;
@@ -113,5 +122,67 @@ class StaffController extends Controller
         return redirect()->route('courseMarks.upload', $courseName);
     }
 
+
+    //    ASSIGNMENTS
+
+
+    public function assignmentView($courseName){
+        $r = Course::getStudentsEnrolled($courseName);
+        return view('StaffViews.assignment')->with('courseId', $r['id']);
+    }
+
+    public function uploadAssignment(assignmentRequest $request){
+        $assignment = new Assignments;
+        $file = $request->assignmentFile;
+        if($request->hasFile($file)){
+            $file->store('Assignments');
+        }
+        $assignment->AssignmentFile = $file->getClientOriginalName();
+        $assignment->Title = $request->t_heading;
+        $assignment->Description = $request->t_description;
+        $assignment->Due_Date = $request->t_dueDate;
+        $assignment->CourseId = $request->t_courseId;
+        $assignment->save();
+        // return response($assignment, Response::HTTP_CREATED);
+        return redirect()->route('tempcourseworkMarks.show');
+    }
+
+
+    //  NOTES / COURSE MATREAILS
+    
+    public function addNotesView($courseName){
+        $r = Course::getStudentsEnrolled($courseName);
+        return view('StaffViews.addNotes')->with('courseId', $r['id']);
+    }
+
+    public function uploadNotes(notesRequest $request){
+        $material = new Notes;
+        $file = $request->file_input;
+        if($request->hasFile($file)){
+            $file->store('Assignments');
+        }
+        $material->Title = $request->t_heading;
+        $material->File = $file->getClientOriginalName();
+        $material->CourseId = $request->t_courseId;
+        $material->save();
+        // return response($material, Response::HTTP_CREATED);        
+        return redirect()->route('tempcourseworkMarks.show');
+    }
+
+    //  ANNOUNCEMENTS
+
+    public function announcementsView($courseName){
+        $r = Course::getStudentsEnrolled($courseName);
+        return view('StaffViews.announcements')->with('courseId', $r['id']);
+    }
+
+    public function makeAnnouncment(announcementRequest $request){
+        $announcement = new Announcments;
+        $announcement->Announcement = $request->t_announcement;
+        $announcement->CourseId = $request->t_courseId;
+        $announcement->save();
+        // return response($announcement, Response::HTTP_CREATED);        
+        return redirect()->route('tempcourseworkMarks.show');
+    }
 
 }
