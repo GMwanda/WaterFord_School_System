@@ -21,6 +21,8 @@ class LoginController extends Controller
     |
     */
 
+
+
     use AuthenticatesUsers;
 
     /**
@@ -31,15 +33,7 @@ class LoginController extends Controller
     // protected $redirectTo = RouteServiceProvider::HOME;
 
     protected function authenticated() {
-        if(Auth::check()){
-            if(Auth::user()->is_admin == 2){
-                return redirect('/Staff');
-            } else if(Auth::user()->is_admin == 1){
-                return redirect('/admin');
-            } else {
-                return redirect('/st');
-            }
-        }
+
    }
     /**
      * Create a new controller instance.

@@ -69,7 +69,6 @@ class StaffController extends Controller
     public function showtempcourseWorkMarks(){
         $r = Course::getLectureInformation();
         $lecture = $r['lecs'];
-        // return $lecture;
         return view('StaffViews.tempcourseworkMarks')->with('lecturers', $lecture);
     }
 
