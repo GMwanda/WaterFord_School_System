@@ -11,6 +11,7 @@ use App\Http\Controllers\{
 };
 use App\Http\Controllers\Api\StaffController as ControllersApiStaffController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Resources\userResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ use App\Http\Controllers\Auth\LoginController;
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    return new userResource($request->user());
 });
 // Api login
 Route::post('/login', [LoginController::class, 'login'])->middleware('web');
@@ -37,6 +38,7 @@ Route::post('/login', [LoginController::class, 'login'])->middleware('web');
 Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/coursework', [ControllersApiStaffController::class, 'getClassesTeaching']);
     Route::get('/course/{courseName}/students-enrolled', [ControllersApiStaffController::class, 'getStudentEnrollment']);
-    Route::post('course/{courseName}/attendance', [ControllersApiStaffController::class, 'updateAttendance']);
-    Route::post('course/{courseName}/course-marks', [ControllersApiStaffController::class, 'updateCourseMarks']);
+    Route::post('course/{courseName}/attendance', [ControllersApiStaffController::class, 'uploadAttendance']);
+    Route::post('course/{courseName}/course-marks', [ControllersApiStaffController::class, 'uploadCourseMarks']);
+    Route::put('course/{courseName}/course-marks/update', [ControllersApiStaffController::class, 'updateCourseMarks']);
 });

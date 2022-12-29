@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AttendanceRequest;
 use App\Http\Requests\courseMarksRequest;
+use App\Http\Resources\attendanceResource;
 use App\Http\Resources\courseMarksResource;
 use App\Http\Resources\stdEnrolledCollection;
 use App\Models\Attendance;
@@ -31,20 +32,21 @@ class StaffController extends Controller
         return stdEnrolledCollection::collection($studentsEnrolled);
         // return $studentsEnrolled;
     }
-    public function updateAttendance(AttendanceRequest $request){
+    public function uploadAttendance(AttendanceRequest $request){
         $att = new Attendance;
-        // $d = strtotime($request->Date);
+        $d = strtotime($request->Date);
         // $att->Date = $request->Date;
-        $att->Date = date("m-d-Y", $request->Date);
+        $att->Date = date("Y-m-d", $d);
         $att->StudentId = $request->StudentId;
         $att->Course = $request->CourseId;
         $att->save();
-        return $att;
-        // return response([
-        //     'data' => $att
-        // ], Response::HTTP_CREATED);
+        // return $att;
+        return response([
+            new attendanceResource($att)
+        ], Response::HTTP_CREATED);
     }
-    public function updateCourseMarks(courseMarksRequest $req){
+
+    public function uploadCourseMarks(courseMarksRequest $req){
         $total = $req->Total;
         $marks = $req->Marks . "/" . $total;
         $temp = new CourseworkMarks;
@@ -53,11 +55,27 @@ class StaffController extends Controller
         $temp->courseId = $req->CourseId;
         $temp->Marks = $marks;
         $temp->save();
-        // return [
-        //     new courseMarksResource($temp)
-        // ];
         return response([
-            'data' => new courseMarksResource($temp)
+            new courseMarksResource($temp)
         ], Response::HTTP_CREATED);
+    }
+
+    public function updateCourseMarks(Request $request){
+        $assessment = $request->Assessment;
+        $stdId = $request->stdId;
+        $marks = $request->Marks."/".$request->Total;
+        $courseId = $request->CourseId;
+        // $courseName = $request->courseName;
+        $t = CourseworkMarks::where('stdId', '=', $stdId)->where('courseId', $courseId)->where('Assessment', $assessment)->first();
+        $t->stdId = $stdId;
+        $t->Marks = $marks;
+        $t->Assessment = $assessment;
+        $t->courseId = $courseId;
+        $time = time();
+        $t->updated_at = date('D-m-y', $time);
+        $t->save();
+        return response([
+            new courseMarksResource($t)
+        ], Response::HTTP_OK);
     }
 }

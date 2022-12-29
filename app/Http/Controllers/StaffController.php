@@ -112,8 +112,6 @@ class StaffController extends Controller
         $t->save();
         return redirect()->route('courseMarks.upload', $courseName);
     }
-    
-
 
 
 }
