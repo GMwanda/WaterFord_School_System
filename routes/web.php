@@ -45,31 +45,28 @@ Route::get('/home', [HomeController::class, 'stdHome'])->name('home')->middlewar
 Route::group(['middleware'=>['auth', 'is_admin']],function () {
     //Staff dashboard view
     Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashboard');
-    //Staff coursework view
-    // Route::get('/coursework', function(){
-    //     return view('StaffViews.Coursework');
-    // })->name('coursework');
     // Show courses teaching
     Route::get('/coursework', [StaffController::class, 'showtempcourseWorkMarks'])->name('tempcourseworkMarks.show');
-    //Show functions in a particular course
+    // Show functions in a particular course
     Route::get('/coursework/{courseName}', [StaffController::class, 'showCourseworkFunctions'])->name('courseworkFunctions.show');
-    //Add courswork content/notes to a particular course
-    Route::get('coursework/{courseName}/addNotes', function () {
-        return view('StaffViews.addNotes');
-    })->name('addNotes');
-    //Make an announcement for a particular group of students
-    Route::get('coursework/{courseName}/announcement', function () {
-        return view('StaffViews.announcements');
-    })->name('announcements');
-    Route::get('coursework/{courseName}/assignment', function () {
-        return view('StaffViews.assignment');
-    })->name('assignments');
+    // Show add courswork content/notes form
+    Route::get('coursework/{courseName}/addNotes',[StaffController::class, 'addNotesView'])->name('addNotes');
+    // Route to handle addNotes post request
+    Route::post('/addNotes/upload', [StaffController::class, 'uploadNotes']);
+    // Show announcement form
+    Route::get('coursework/{courseName}/announcement', [StaffController::class, 'announcementsView'])->name('announcements');
+    // Route to handle announcements post requests
+    Route::post('/announcement/upload', [StaffController::class, 'makeAnnouncment']);
+    // Show form to create assignment
+    Route::get('coursework/{courseName}/assignment', [StaffController::class, 'assignmentView'])->name('assignments');
+    // Route to handle assignment post request
+    Route::post('/assignment/upload', [StaffController::class, 'uploadAssignment']);
     // Show form to update marks
     Route::get('/coursework/{courseName}/update-marks', [StaffController::class, 'showCourseWorkMarks'])->name('courseMarks.upload');
     // Route to handle student marks form post method
     Route::post('/coursework/update-marks', [StaffController::class, 'updateMarks']);
     // Change/correct coursework marks
-    Route::post('/coursework/change-marks', [StaffController::class, 'changeMarks'])->name('courseMarks.change');
+    Route::put('/coursework/change-marks', [StaffController::class, 'changeMarks'])->name('courseMarks.change');
     // Show attendance view
     Route::get('/attendance', [StaffController::class, 'attendance'])->name('Attendance');
     // Update attendance view
