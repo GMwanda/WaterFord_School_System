@@ -94,3 +94,4 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
 
 //ADMIN
 Route::get('/admin', 'App\Http\Controllers\AdminController@adminHome');
+Route::get('/adminRegister', 'App\Http\Controllers\AdminController@adminRegister');

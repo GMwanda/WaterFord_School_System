@@ -22,4 +22,7 @@ class AdminController extends Controller
         $lectures = $r['lecs'];
         return view('Admin.AdminHome')->with('lecturer', $personal_info)->with('lecturers', $lectures);;
     }
+    public function adminRegister(){
+        return view('Admin.AdminRegister');
+    }
 }
