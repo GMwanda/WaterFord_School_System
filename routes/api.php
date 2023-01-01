@@ -29,7 +29,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return new userResource($request->user());
 });
 // Api login
-Route::post('/login', [LoginController::class, 'login'])->middleware('web');
+// Route::post('/login', [LoginController::class, 'login'])->middleware('web');
+// Route::post('/login', [LoginController::class, 'login'])->middleware('web');
 
 
 /*

@@ -17,6 +17,8 @@
         <div class="my-4">
             <label class="font-bold mx-2" for="date">Date</label>
             <input id="t_date" class="form-group border border-solid rounded-md h-10 border-slate-600 focus:bg-blue-200" type="date" name="t_date">
+            <label class="font-bold mx-2" for="date">Hours</label>
+            <input id="t_hours" class="form-group border border-solid rounded-md h-10 border-slate-600" type="text" name="t_hours">
             <input type="text" class="form-group" hidden value="{{$courseId->id}}" name="t_courseId" id="t_courseId">
             <span class="alert alert-success mb-3" role="alert" id="successMsg" style="display: none">Updated</span>
             <span class="alert alert-danger mb-3" role="alert" id="errorMsg" style="display: none"></span>  
@@ -58,7 +60,8 @@
                         data: {
                             Date:$("#t_date").val(),
                             CourseId:$("#t_courseId").val(),
-                            StudentId:stdId
+                            StudentId:stdId,
+                            Hours:$('#t_hours').val()
                         },
                         success: function (response) {
                             $("#successMsg").fadeIn();

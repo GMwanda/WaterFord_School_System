@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attendance;
+use App\Models\Course;
+use App\Models\Student;
 use App\Models\st_model;
 use App\Models\units_model;
 use App\Models\CourseworkMarks;
 
 use Auth;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class student_profile extends Controller
 {
@@ -104,6 +109,35 @@ class student_profile extends Controller
      return view('/students/getregisteredunits',["r"=>$r]);
   }
   
+    public function getAttendance(){
+        $id = auth()->id();
+        $att = Attendance::where('StudentId', $id)->orderBy('Course')->get();
+        $std = Student::where('UserId', $id)->select('CourseEnrolled')->get();
+        $c = collect();
+        $courses = collect($att);
+        foreach ($att->unique('Course') as $s) {
+            $v = Course::where('id', $s->Course)->select('course_name')->first();
+            $c[$s->Course] = $v->course_name;
+            $GLOBALS[$v->course_name] = $s->Course;
+        }
+        $g = collect();
+        foreach ($c as $f) {
+            // echo $GLOBALS[$f];
+            // echo $GLOBALS[$f] . " =>" . $courses->where('Course', $GLOBALS[$f]);
+            // echo $GLOBALS[$f] . " =>" . round($courses->where('Course', $GLOBALS[$f])->sum('Hours')/38*100,2). " ";
+            $g[$GLOBALS[$f]] = round($courses->where('Course', $GLOBALS[$f])->sum('Hours') / 38 * 100, 2);
+        }
+        $x = $courses->groupBy('Course');
+        $y = collect($g);
+        return view('students.attendanceViewOne')->with('Course', $courses);
+        echo $x;
+
         
-    }
+        
+
+
+        
+    }        
+    
+}
 

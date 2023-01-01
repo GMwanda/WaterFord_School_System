@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('course_name');
             $table->foreignId('faculty_id')->constrained('faculties')->onDelete('cascade');
             $table->foreignId('lecturer_id')->constrained('users')->onDelete('cascade');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->timestamps();
         });
     }

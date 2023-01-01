@@ -12,7 +12,7 @@ class Attendance extends Model
     protected $fillable = [
         'Date',
         'StudentId',
-        // 'Status',
+        'Hours',
         'Course',
         'created_at',
         'updated_at'

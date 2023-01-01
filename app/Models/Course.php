@@ -12,7 +12,9 @@ class Course extends Model
     protected $fillable = [
         'course_name', 
         'faculty_id',
-        'lecturer_id'
+        'lecturer_id',
+        'start_date',
+        'end_date',
     ];
 
     //Relationship between Faculty and Courses

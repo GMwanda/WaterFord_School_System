@@ -26,7 +26,8 @@ class AttendanceRequest extends FormRequest
         return [
             'Date' => 'required|string',
             'StudentId' => 'required',
-            'CourseId' => 'required'
+            'CourseId' => 'required',
+            'Hours' => 'required'
         ];
     }
 }
