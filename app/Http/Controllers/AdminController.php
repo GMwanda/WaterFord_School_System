@@ -13,8 +13,13 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+
+
     public function adminHome()
     {
-        return view('Admin.AdminHome');
+        $r = Course::getLectureInformation();
+        $personal_info = $r['info'];;
+        $lectures = $r['lecs'];
+        return view('Admin.AdminHome')->with('lecturer', $personal_info)->with('lecturers', $lectures);;
     }
 }

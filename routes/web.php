@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     parentController,
     HomeController,
-    StaffController, 
+    StaffController,
     student_profile,
     AdminController
 };
@@ -25,6 +25,7 @@ use App\Http\Controllers\{
 // Route::prefix('admin')->middleware('auth')->group(function () {
 // });
 Auth::routes();
+
 // {SCREENS AVAILABLE WITHOUR LOGIN}
 Route::get('/', [parentController::class, 'index'])->name(name: 'index');
 Route::get('/contact', [parentController::class, 'contact'])->name(name: 'contact');
@@ -33,6 +34,20 @@ Route::get('/LoginPortal', [parentController::class, 'LoginPortal'])->name(name:
 
 // {STUDENT HOME SCREEN}
 Route::get('/home', [HomeController::class, 'stdHome'])->name('home')->middleware('auth', 'is_admin');
+//students
+Route::group(['middleware' => ['auth', 'is_admin']], function () {
+    Route::get('/st', 'App\Http\Controllers\student_profile@st_profile');
+    Route::post('/st_add', 'App\Http\Controllers\student_profile@st_Added');
+    Route::get('/show', 'App\Http\Controllers\student_profile@getstudents_profile');
+    Route::get('delete/{id}', 'App\Http\Controllers\student_profile@studentDelete');
+    Route::get('update/{id}', 'App\Http\Controllers\student_profile@student_update');
+    Route::post('/updated/{id}', 'App\Http\Controllers\student_profile@updated');
+    Route::get('/stdashboard', 'App\Http\Controllers\student_profile@st_dashboard');
+    Route::get('/units', 'App\Http\Controllers\student_profile@get_units');
+    Route::post('/add_units', 'App\Http\Controllers\student_profile@add_units');
+    Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
+    Route::get('/marks', 'App\Http\Controllers\student_profile@marks');
+});
 
 
 
@@ -40,11 +55,8 @@ Route::get('/home', [HomeController::class, 'stdHome'])->name('home')->middlewar
 //                                  {LOGGED IN STAFF SCREENS @NYAMO}
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffHome')->middleware('auth', 'is_admin');
 //Route::get('/Staff', [App\Http\Controllers\parentController::class, 'staffHome'])->name('staffDashboard');
-
-
-Route::group(['middleware'=>['auth', 'is_admin']],function () {
-
-                                    //STAFF SCREEN 
+Route::group(['middleware' => ['auth', 'is_admin']], function () {
+    //STAFF SCREEN 
     //Staff dashboard view
     Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashboard');
     // Show courses teaching
@@ -52,7 +64,7 @@ Route::group(['middleware'=>['auth', 'is_admin']],function () {
     // Show functions in a particular course
     Route::get('/coursework/{courseName}', [StaffController::class, 'showCourseworkFunctions'])->name('courseworkFunctions.show');
     // Show add courswork content/notes form
-    Route::get('coursework/{courseName}/addNotes',[StaffController::class, 'addNotesView'])->name('addNotes');
+    Route::get('coursework/{courseName}/addNotes', [StaffController::class, 'addNotesView'])->name('addNotes');
     // Route to handle addNotes post request
     Route::post('/addNotes/upload', [StaffController::class, 'uploadNotes']);
     // Show announcement form
@@ -77,21 +89,8 @@ Route::group(['middleware'=>['auth', 'is_admin']],function () {
     Route::post('/attendance/update-attendance', [StaffController::class, 'updateAttendance'])->name('Attendance.updateAttendance');
 });
 
+//ADMIN
 
-
-
-//students
-Route::get('/st', 'App\Http\Controllers\student_profile@st_profile');
-Route::post('/st_add', 'App\Http\Controllers\student_profile@st_Added');
-Route::get('/show', 'App\Http\Controllers\student_profile@getstudents_profile');
-Route::get('delete/{id}','App\Http\Controllers\student_profile@studentDelete');
-Route::get('update/{id}','App\Http\Controllers\student_profile@student_update'); 
-Route::post('/updated/{id}', 'App\Http\Controllers\student_profile@updated'); 
-Route::get('/stdashboard', 'App\Http\Controllers\student_profile@st_dashboard');
-Route::get('/units', 'App\Http\Controllers\student_profile@get_units');
-Route::post('/add_units', 'App\Http\Controllers\student_profile@add_units');
-Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
-Route::get('/marks', 'App\Http\Controllers\student_profile@marks');
 
 //ADMIN
 Route::get('/admin', 'App\Http\Controllers\AdminController@adminHome');

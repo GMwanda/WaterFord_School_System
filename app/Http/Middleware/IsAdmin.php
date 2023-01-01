@@ -30,7 +30,7 @@ class IsAdmin
             }
             else if(Auth::user()->is_admin == 0){
                 // return $next($request);
-                return redirect('/home');
+                return redirect('/st');
             } else {
                 return abort(403, 'Unauthorized Access');
             }

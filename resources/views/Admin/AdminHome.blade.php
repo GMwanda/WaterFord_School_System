@@ -15,7 +15,7 @@
 @section('content')
     <div id="container" class=" container grid w-screen">
 
-        <div class=" col-start-1 col-end-2 flex flex-col w-72 h-screen py-8 bg-white border-r ">
+        <div class=" col-start-1 col-end-2 flex flex-col w-72 h-screen py-8  ">
             <h2 class="text-3xl font-semibold text-center text-gray-800 ">ADMINISTRATOR'S PORTAL</h2>
 
             <div class="flex flex-col justify-between flex-1 mt-6">
@@ -34,7 +34,8 @@
                             class="rounded px-0 w-full relative text-center text-gray-700 no-underline ">
                             <li onClick="document.location.href='{{ route('register') }}';"
                                 class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">
-                                Register</li>
+                                {{ __('Register') }}</li>
+                            
                             {{-- /* <li onclick="document.location.href='{{route('assigningunits')}}';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Assigning units</li> */ --}}
                         </ul>
                     </div>
@@ -56,7 +57,42 @@
                         <span class="mx-4 font-medium">Logout</span>
                     </a>
                 </nav>
+
+
+
             </div>
         </div>
+
+        <div class="text-gray-700 mt-6">
+            <div class="grid md:grid-cols-2 text-lg">
+                <div class="grid grid-cols-2">
+                    <div class="px-4 py-2 font-semibold">Name</div>
+                    <div class="px-4 py-2">{{ $lecturer->name }}</div>
+                </div>
+                <div class="grid grid-cols-2">
+                    <div class="px-4 py-2 font-semibold">Gender</div>
+                    <div class="px-4 py-2">{{ $lecturer->gender }}</div>
+                </div>
+                <div class="grid grid-cols-2">
+                    <div class="px-4 py-2 font-semibold">Contact No.</div>
+                    <div class="px-4 py-2">{{ $lecturer->phone_number }}</div>
+                </div>
+                <div class="grid grid-cols-2">
+                    <div class="px-4 py-2 font-semibold">Address</div>
+                    <div class="px-4 py-2">{{ $lecturer->address }}</div>
+                </div>
+                <div class="grid grid-cols-2">
+                    <div class="px-4 py-2 font-semibold">Email</div>
+                    <div class="px-4 py-2">
+                        <a class="text-blue-800" href="mailto:{{ $lecturer->email }}">{{ $lecturer->email }}</a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2">
+                    <div class="px-4 py-2 font-semibold">Birthday</div>
+                    <div class="px-4 py-2">{{ $lecturer->DOB }}</div>
+                </div>
+            </div>
+        </div>
+
     </div>
 @endsection
