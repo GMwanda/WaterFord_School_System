@@ -45,7 +45,7 @@
                         alt="computerscience">
                 </div>
                 <div class="course_info">
-                    <h4>computer science</h4>
+                    <h4>Math</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing
                         elit.
                         Molestiae delectus quidem, id natus libero ullam?</p>
@@ -61,7 +61,7 @@
                         alt="medicine">
                 </div>
                 <div class="course_info">
-                    <h4>medicine</h4>
+                    <h4>Networking</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing
                         elit.
                         Molestiae delectus quidem, id natus libero ullam?</p>
@@ -86,14 +86,14 @@
                 </div>
             </article>
 
-            <!--MEDICINE-->
+            <!--BBIT-->
             <article class="course">
                 <div class="course_img">
                     <img src="/home_images/medicinepic.jpg"
                         alt="medicine">
                 </div>
                 <div class="course_info">
-                    <h4>medicine</h4>
+                    <h4>Information Technology</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing
                         elit.
                         Molestiae delectus quidem, id natus libero ullam?</p>

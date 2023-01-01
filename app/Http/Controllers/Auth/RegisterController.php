@@ -57,7 +57,7 @@ class RegisterController extends Controller
             'address' => ['required', 'string'],
             'phone_number' => ['required', 'min:5', 'unique:users'],
             'password' => ['required', 'string', 'min:5', 'confirmed'],
-            'is_admin   ' => ['required', 'string'],
+            'userrole' => ['required', 'string'],
         ]);
     }
 

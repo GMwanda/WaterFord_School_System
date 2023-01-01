@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class st_model extends Model
 {
-    protected $table='students_profile';
+    protected $table='users';
     use HasFactory;
 }
