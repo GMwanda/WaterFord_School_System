@@ -15,6 +15,6 @@ class AdminController extends Controller
 {
     public function adminHome()
     {
-        return view('Admin.adminHome');
+        return view('Admin.AdminHome');
     }
 }

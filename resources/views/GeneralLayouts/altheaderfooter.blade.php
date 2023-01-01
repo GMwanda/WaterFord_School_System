@@ -133,6 +133,10 @@
                             </li>
                             <li><a href="/contact" class="text-white  text-decoration-none fas fa-paw pe-3">Contact</a>
                             </li>
+                            <li><a href="/home" class="text-white  text-decoration-none fas fa-paw pe-3">Student Portal</a>
+                            </li>
+                            {{-- <li><a href="/Staff" class="text-white  text-decoration-none fas fa-paw pe-3">Staff Portal</a>
+                            </li> --}}
                         </ul>
                     </div>
                     <!--Grid column-->

@@ -21,13 +21,16 @@ class IsAdmin
         if (Auth::check()) {
 
             if (Auth::user()->is_admin == 1) {
-                return $next($request);
+                // return $next($request);
+                return redirect('/admin');
             }
             else if (Auth::user()->is_admin == 2) {
-                return $next($request);
+                // return $next($request);
+                return redirect('/Staff');
             }
             else if(Auth::user()->is_admin == 0){
-                return $next($request);
+                // return $next($request);
+                return redirect('/home');
             } else {
                 return abort(403, 'Unauthorized Access');
             }

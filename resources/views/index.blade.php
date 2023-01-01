@@ -52,14 +52,14 @@
                         adipisicing elit. Assumenda, suscipit.</p>
                 </article>
 
-                <!--LAW-->
+                <!--COMPUTER SCIENCE-->
                 <article class="category">
                     <span class="category_icon">
                         <span class="material-symbols-sharp">
                             gavel
                         </span>
                     </span>
-                    <h4>Law</h4>
+                    <h4>computer science</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur
                         adipisicing elit. Assumenda, suscipit.</p>
                 </article>
@@ -76,38 +76,38 @@
                         adipisicing elit. Assumenda, suscipit.</p>
                 </article>
 
-                <!--AVIATION-->
+                <!--BBIT-->
                 <article class="category">
                     <span class="category_icon">
                         <span class="material-symbols-sharp">
                             flight_takeoff
                         </span>
                     </span>
-                    <h4>Aviation</h4>
+                    <h4>Information Technology</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur
                         adipisicing elit. Assumenda, suscipit.</p>
                 </article>
 
-                <!--MEDICINE-->
+                <!--Networking-->
                 <article class="category">
                     <span class="category_icon">
                         <span class="material-symbols-sharp">
                             healing
                         </span>
                     </span>
-                    <h4>Medicine</h4>
+                    <h4>Networking</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur
                         adipisicing elit. Assumenda, suscipit.</p>
                 </article>
 
-                <!--HUMANITIES-->
+                <!--CYBER SECURITY-->
                 <article class="category">
                     <span class="category_icon">
                         <span class="material-symbols-sharp">
                             psychology
                         </span>
                     </span>
-                    <h4>Humanities</h4>
+                    <h4>Cyber Security</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur
                         adipisicing elit. Assumenda, suscipit.</p>
                 </article>
@@ -152,13 +152,13 @@
                 </div>
             </article>
 
-            <!--MEDICINE-->
+            <!--Cyber Security-->
             <article class="course">
                 <div class="course_img">
                     <img src="/home_images/medicinepic.jpg" alt="medicine">
                 </div>
                 <div class="course_info">
-                    <h4>medicine</h4>
+                    <h4>Cyber security</h4>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing
                         elit.
                         Molestiae delectus quidem, id natus libero ullam?</p>

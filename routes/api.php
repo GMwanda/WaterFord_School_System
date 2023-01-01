@@ -42,3 +42,11 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::post('course/{courseName}/course-marks', [ControllersApiStaffController::class, 'uploadCourseMarks']);
     Route::put('course/{courseName}/course-marks/update', [ControllersApiStaffController::class, 'updateCourseMarks']);
 });
+
+
+/*
+        ADMIN API ROUTES
+*/
+Route::group(['middleware' => ['auth:api']], function () {
+    Route::get('/admin', 'App\Http\Controllers\AdminController@adminHome');
+});

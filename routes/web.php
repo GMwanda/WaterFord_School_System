@@ -43,6 +43,8 @@ Route::get('/home', [HomeController::class, 'stdHome'])->name('home')->middlewar
 
 
 Route::group(['middleware'=>['auth', 'is_admin']],function () {
+
+                                    //STAFF SCREEN 
     //Staff dashboard view
     Route::get('/Staff', [StaffController::class, 'defaultView'])->name('staffDashboard');
     // Show courses teaching
