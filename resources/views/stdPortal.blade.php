@@ -42,6 +42,8 @@
                             <li onclick="document.location.href='/get';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">registerdunits</li>
                             <li onclick="document.location.href='/units';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">registerforunits</li>
                             <li onclick="document.location.href='/marks';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">marks</li>
+                            <li onclick="document.location.href='/assignments';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">assignment</li>
+                            <li onclick="document.location.href='/attendance-show';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Attendance</li>
                         </ul>
                     </div>
                 </a>
