@@ -32,11 +32,21 @@
                     <div class=" left-0 w-full">
                         <ul id="std-mgt-submenu"
                             class="rounded px-0 w-full relative text-center text-gray-700 no-underline ">
-                            {{-- <li onClick="document.location.href='{{ route('register') }}';"
+                            <li
                                 class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">
-                                {{ __('Register') }}</li> --}}
-                            <li><a href="/adminRegister" class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Register2</a></li>
-                            {{-- /* <li onclick="document.location.href='{{route('assigningunits')}}';" class=" my-0 h-12 border-b pt-3 w-full hover:bg-gray-200 hover:text-gray-700">Assigning units</li> */ --}}
+                                <a href="/adminRegister">
+                                    REGISTER
+                            </li>
+                            {{-- <li onClick="document.location.href='/adminRegister';"
+                                class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">
+                                REGISTER</li> --}}
+                            {{-- <li onClick="document.location.href='/updateUser/{id}';"
+                                class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">
+                                UPDATE USER</li> --}}
+                            <li class=" my-0 h-12 border-b border-b-slate-900 pt-3 w-full hover:bg-gray-200 hover:text-gray-700">
+                                <a href="/Staff">STAFF PANEL</a></li>
+
+
                         </ul>
                     </div>
 

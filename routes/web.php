@@ -35,19 +35,19 @@ Route::get('/LoginPortal', [parentController::class, 'LoginPortal'])->name(name:
 // {STUDENT HOME SCREEN}
 Route::get('/home', [HomeController::class, 'stdHome'])->name('home')->middleware('auth', 'is_admin');
 //students
-Route::group(['middleware' => ['auth', 'is_admin']], function () {
-    Route::get('/st', 'App\Http\Controllers\student_profile@st_profile');
-    Route::post('/st_add', 'App\Http\Controllers\student_profile@st_Added');
-    Route::get('/show', 'App\Http\Controllers\student_profile@getstudents_profile');
-    Route::get('delete/{id}', 'App\Http\Controllers\student_profile@studentDelete');
-    Route::get('update/{id}', 'App\Http\Controllers\student_profile@student_update');
-    Route::post('/updated/{id}', 'App\Http\Controllers\student_profile@updated');
-    Route::get('/stdashboard', 'App\Http\Controllers\student_profile@st_dashboard');
-    Route::get('/units', 'App\Http\Controllers\student_profile@get_units');
-    Route::post('/add_units', 'App\Http\Controllers\student_profile@add_units');
-    Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
-    Route::get('/marks', 'App\Http\Controllers\student_profile@marks');
-});
+
+Route::get('/st', 'App\Http\Controllers\student_profile@st_profile');
+Route::post('/st_add', 'App\Http\Controllers\student_profile@st_Added');
+Route::get('/show', 'App\Http\Controllers\student_profile@getstudents_profile');
+Route::get('delete/{id}', 'App\Http\Controllers\student_profile@studentDelete');
+Route::get('update/{id}', 'App\Http\Controllers\student_profile@student_update');
+Route::post('/updated/{id}', 'App\Http\Controllers\student_profile@updated');
+Route::get('/stdashboard', 'App\Http\Controllers\student_profile@st_dashboard');
+Route::get('/units', 'App\Http\Controllers\student_profile@get_units');
+Route::post('/add_units', 'App\Http\Controllers\student_profile@add_units');
+Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
+Route::get('/marks', 'App\Http\Controllers\student_profile@marks');
+
 
 
 
@@ -95,3 +95,5 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
 //ADMIN
 Route::get('/admin', 'App\Http\Controllers\AdminController@adminHome');
 Route::get('/adminRegister', 'App\Http\Controllers\AdminController@adminRegister');
+Route::post('/addUser', 'App\Http\Controllers\AdminRegisterController@add_user');
+Route::post('/updateUser/{id}', 'App\Http\Controllers\AdminRegisterController@update_user');
