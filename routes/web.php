@@ -39,16 +39,16 @@ Route::get('/home', [HomeController::class, 'stdHome'])->name('home')->middlewar
 Route::get('/st', 'App\Http\Controllers\student_profile@st_profile');
 Route::post('/st_add', 'App\Http\Controllers\student_profile@st_Added');
 Route::get('/show', 'App\Http\Controllers\student_profile@getstudents_profile');
-Route::get('delete/{id}', 'App\Http\Controllers\student_profile@studentDelete');
-Route::get('update/{id}', 'App\Http\Controllers\student_profile@student_update');
-Route::post('/updated/{id}', 'App\Http\Controllers\student_profile@updated');
+Route::get('delete/{id}','App\Http\Controllers\student_profile@studentDelete');
+Route::get('update/{id}','App\Http\Controllers\student_profile@student_update'); 
+Route::post('/updated/{id}', 'App\Http\Controllers\student_profile@updated'); 
 Route::get('/stdashboard', 'App\Http\Controllers\student_profile@st_dashboard');
 Route::get('/units', 'App\Http\Controllers\student_profile@get_units');
 Route::post('/add_units', 'App\Http\Controllers\student_profile@add_units');
 Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
 Route::get('/marks', 'App\Http\Controllers\student_profile@marks');
-
-
+Route::get('/attendance-show', 'App\Http\Controllers\student_profile@getAttendance');
+Route::get('/assignments', 'App\Http\Controllers\student_profile@assignments');
 
 
 
@@ -89,23 +89,11 @@ Route::group(['middleware' => ['auth', 'is_admin']], function () {
     Route::post('/attendance/update-attendance', [StaffController::class, 'updateAttendance'])->name('Attendance.updateAttendance');
 });
 
-//ADMIN
 
 
 
-//students
-Route::get('/st', 'App\Http\Controllers\student_profile@st_profile');
-Route::post('/st_add', 'App\Http\Controllers\student_profile@st_Added');
-Route::get('/show', 'App\Http\Controllers\student_profile@getstudents_profile');
-Route::get('delete/{id}','App\Http\Controllers\student_profile@studentDelete');
-Route::get('update/{id}','App\Http\Controllers\student_profile@student_update'); 
-Route::post('/updated/{id}', 'App\Http\Controllers\student_profile@updated'); 
-Route::get('/stdashboard', 'App\Http\Controllers\student_profile@st_dashboard');
-Route::get('/units', 'App\Http\Controllers\student_profile@get_units');
-Route::post('/add_units', 'App\Http\Controllers\student_profile@add_units');
-Route::get('/get', 'App\Http\Controllers\student_profile@getsregistered_units');
-Route::get('/marks', 'App\Http\Controllers\student_profile@marks');
-Route::get('/attendance-show', 'App\Http\Controllers\student_profile@getAttendance');
+
+
 
 //ADMIN
 Route::get('/admin', 'App\Http\Controllers\AdminController@adminHome');
