@@ -1,4 +1,5 @@
-<?php
+
+ <?php
 
 namespace App\Http\Controllers;
 
@@ -107,7 +108,7 @@ class student_profile extends Controller
      
  }
  public function getsregistered_units(){
-  $name=Auth::user()->name;
+  $name=Auth()->name;
     $r=units_model::where('Name',$name)->get();
      return view('/students/getregisteredunits',["r"=>$r]);
   }
@@ -142,21 +143,7 @@ class student_profile extends Controller
         
     }        
     
-}
-    public function add_units(Request $request)
-    {
 
-        $unit = new units_model();
-        $unit->Name = $request->Name;
-        $unit->Class = $request->class;
-        $unit->units = $request->units;
-        $unit->save();
-        return redirect('/units');
-    }
-    public function getsregistered_units()
-    {
-        $name = Auth()->name;
-        $r = units_model::where('Name', $name)->get();
-        return view('/students/getregisteredunits', ["r" => $r]);
-    }
+    
+    
 }
