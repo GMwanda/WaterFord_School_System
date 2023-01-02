@@ -60,6 +60,7 @@ class StaffController extends Controller
         $att->Date = $request->Date;
         $att->StudentId = $request->StudentId;
         $att->Course = $request->CourseId;
+        $att->Hours = $request->Hours;
         $att->save();
         return response()->json([
             'error' => [
