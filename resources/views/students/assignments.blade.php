@@ -1,0 +1,1 @@
+<link rel="stylesheet" type="text"  href="{{asset('storage') }}">
